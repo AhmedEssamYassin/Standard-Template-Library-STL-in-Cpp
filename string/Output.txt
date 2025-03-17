@@ -1,0 +1,67 @@
+S
+c
+a
+Tokenizing the string based on ' ', '!' and '?'
+Token 1: This
+Token 2: is
+Token 3: A
+Token 4: sentence
+Token 5: or
+Token 6: a
+Token 7: Line
+Token 8: just
+Token 9: to
+Token 10: show
+Token 11: how
+Token 12: strtok()
+Token 13: works
+Token 14: Amazing
+Token 15: ha
+Token 16: I
+Token 17: know:)
+---------------------------------------------------------------------------------
+32
+:, I reallllllly recommend it! 
+Ahmed Yassin is a beautiful instructor 
+No he is not just beautiful
+Another class string Ahmed Essam
+string is not empty, it is: Another class stringNew string
+Another new string
+to be the question
+to be not the question
+to be not that is the question
+to be not to be that is the question
+to be not to be: that is the question
+to be, not to be: that is the question
+to be, not to be: that is the question...
+to be, or not to be: that is the question...
+---------------------------------------------------------------------------------
+this is an example string.
+this is an example phrase.
+this is just a phrase.
+this is a short phrase.
+this is a short phrase!!!
+sample phrase!!!
+replace phrase!!!
+replace is cool!!!
+replace is cooool!!!
+replace is useful.
+---------------------------------------------------------------------------------
+The sixth sick sheik's seventh sheep's sick.
+---------------------------------------------------------------------------------
+After erase(5, 2): HelloWorld!
+After erase(5): Hello
+After erase(begin()+7): Hello, orld!
+After erase range: He, orld!
+---------------------------------------------------------------------------------
+After swap: swap1 = Second, swap2 = First
+---------------------------------------------------------------------------------
+Find 'simple': 10
+Find 'is' after index 3: 5
+Find first occurrence of 's': 3
+Find first 3 characters of 'example': 17
+---------------------------------------------------------------------------------
+Reverse Find 'simple': 10
+Reverse Find 'is' before index 10: 5
+Reverse Find 's': 10
+Reverse Find first 3 characters of 'example': 17

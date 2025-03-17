@@ -1,0 +1,9 @@
+Size: 5
+Empty: No
+Elements: 5 10 15 20 25 
+After insert(12 and duplicate 5): 5 10 12 15 20 25 
+15 found in set
+After erase(10): 5 12 15 20 25 
+Lower bound of 15: 15
+Upper bound of 15: 20
+After clear(): Set is empty

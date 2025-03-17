@@ -1,0 +1,33 @@
+Unordered Map Elements:
+date: 40
+cherry: 20
+banana: 30
+apple: 50
+--------------------------------------------------------
+Price of Apple: 50
+Price of Cherry: 20
+--------------------------------------------------------
+Banana exists in map
+Mango does not exist
+--------------------------------------------------------
+After erasing banana:
+date: 40
+cherry: 20
+apple: 50
+--------------------------------------------------------
+Elements of umap after swap: orange: 45
+grape: 60
+
+Elements of newUmap after swap: date: 40
+cherry: 20
+apple: 50
+
+--------------------------------------------------------
+Size of map: 2
+After clearing, is empty? Yes
+--------------------------------------------------------
+Number of Buckets: 13
+Load Factor: 0.230769
+Rehashing to 10 buckets...
+New Bucket Count: 11
+--------------------------------------------------------

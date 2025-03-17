@@ -1,0 +1,7 @@
+Pair 1: (1, Alice)
+Pair 2: (2, Bob)
+After swap - Pair 1: (2, Bob)
+Unpacked from p1: 2 - Bob
+Tuple: (1, Charlie, 75.5)
+After modification: David
+Unpacked from tuple: 1 - David - 75.5

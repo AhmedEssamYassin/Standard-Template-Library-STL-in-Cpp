@@ -1,0 +1,20 @@
+Unordered Set Elements:
+40 30 20 10 
+--------------------------------------------------------
+20 exists in the set
+50 does not exist in the set
+--------------------------------------------------------
+After erasing 30:
+40 20 10 
+--------------------------------------------------------
+Elements of uset after swap: 300 200 100 
+Elements of newUset after swap: 40 20 10 
+--------------------------------------------------------
+Size of set: 3
+After clearing, is empty? Yes
+--------------------------------------------------------
+Number of Buckets: 13
+Load Factor: 0.384615
+Rehashing to 10 buckets...
+New Bucket Count: 11
+--------------------------------------------------------

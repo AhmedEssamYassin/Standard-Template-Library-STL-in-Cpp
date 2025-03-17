@@ -1,0 +1,8 @@
+Size: 3
+Empty: No
+Front: 10
+Back: 30
+After pop(): 
+Front: 20
+Size: 2
+After clearing: Queue is empty

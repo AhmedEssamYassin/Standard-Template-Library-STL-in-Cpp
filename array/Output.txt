@@ -1,0 +1,7 @@
+1
+5
+1 8 -2 12 5 
+-2 1 5 8 12 
+5
+Elements of arr: 1 2 0 -4 7 
+Elements of newArr: -2 1 5 8 12 

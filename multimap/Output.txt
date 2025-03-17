@@ -1,0 +1,26 @@
+Multimap Elements:
+apple: 50
+apple: 60
+banana: 30
+banana: 40
+cherry: 20
+--------------------------------------------------------
+First occurrence of banana: 30
+Count of 'apple': 2
+--------------------------------------------------------
+All values for 'banana': 30 40 
+--------------------------------------------------------
+After erasing 'apple':
+banana: 30
+banana: 40
+cherry: 20
+--------------------------------------------------------
+Lower bound of 'banana': 30
+Upper bound of 'banana': 20
+--------------------------------------------------------
+Elements of mmap after swap: grape: 70 orange: 90 
+Elements of newMmap after swap: banana: 30 banana: 40 cherry: 20 
+--------------------------------------------------------
+Size of multimap: 2
+After clearing, is empty? Yes
+--------------------------------------------------------

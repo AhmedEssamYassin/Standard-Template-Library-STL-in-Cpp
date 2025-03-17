@@ -1,0 +1,16 @@
+Front: 10
+Back: 25
+Size: 6
+Empty: No
+Elements: 10 10 5 20 15 25 
+After sorting: 5 10 10 15 20 25 
+After push_front(99) and push_back(-1): 99 5 10 10 15 20 25 -1 
+After reverse(): -1 25 20 15 10 10 5 99 
+After insert(42 at 3rd position): -1 25 42 20 15 10 10 5 99 
+After erase(5th element): -1 25 42 20 10 10 5 99 
+After remove(10): -1 25 42 20 5 99 
+After pop_front(): 25 42 20 5 99 
+After pop_back(): 25 42 20 5 
+Elements of myList after swap: 1 2 3 
+Elements of newList after swap: 25 42 20 5 
+After clear(): List is empty

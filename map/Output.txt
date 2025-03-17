@@ -1,0 +1,13 @@
+Size: 3
+Empty: No
+Elements: 
+Alice -> 25
+Bob -> 30
+Charlie -> 35
+Bob found with value 30
+After erase(Alice): 
+Bob -> 30
+Charlie -> 35
+Lower bound of Bob: Bob -> 30
+Upper bound of Bob: Charlie -> 35
+After clear(): Map is empty
