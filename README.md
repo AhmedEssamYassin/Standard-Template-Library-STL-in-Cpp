@@ -56,9 +56,14 @@ Each STL container has its own file with:
 
 ---
 
-## 🔥 How to Run?
+## How to Run?
 Clone this repository and compile any STL example using:
 
 ```sh
-g++ filename.cpp -o output && ./output
+g++ -O3 -o filename filename.cpp
+```
+Then,
+```
+./filename
+```
 
