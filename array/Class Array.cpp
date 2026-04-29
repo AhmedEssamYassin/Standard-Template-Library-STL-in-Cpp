@@ -30,10 +30,10 @@ int main()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
-#ifndef ONLINE_JUDGE
+#ifdef LOCAL
 	freopen("input.txt", "r", stdin);
 	freopen("Output.txt", "w", stdout);
-#endif //! ONLINE_JUDGE
+#endif
 	array<int, 5> arr{1, 8, -2, 12, 5};
 	cout << "Front: " << arr.front() << endl;				   // Prints 1
 	cout << "Back: " << arr.back() << endl;					   // Prints 5

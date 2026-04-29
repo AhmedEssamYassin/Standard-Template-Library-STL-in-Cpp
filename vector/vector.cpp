@@ -51,10 +51,10 @@ int main()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
-#ifndef ONLINE_JUDGE
+#ifdef LOCAL
 	freopen("input.txt", "r", stdin);
 	freopen("Output.txt", "w", stdout);
-#endif //! ONLINE_JUDGE
+#endif
 	   // Initializing a vector with values
 	vector<int> myVector{10, 5, 20, 15, 25};
 	cout << "Size: " << myVector.size() << endl;

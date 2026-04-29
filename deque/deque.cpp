@@ -35,10 +35,10 @@ int main()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
-#ifndef ONLINE_JUDGE
+#ifdef LOCAL
 	freopen("input.txt", "r", stdin);
 	freopen("Output.txt", "w", stdout);
-#endif //! ONLINE_JUDGE
+#endif
 	deque<int> myDeque;
 	myDeque.push_back(10);
 	myDeque.push_front(20);

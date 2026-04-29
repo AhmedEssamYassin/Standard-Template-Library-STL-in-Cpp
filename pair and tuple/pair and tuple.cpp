@@ -30,10 +30,10 @@ int main()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
-#ifndef ONLINE_JUDGE
+#ifdef LOCAL
 	freopen("input.txt", "r", stdin);
 	freopen("Output.txt", "w", stdout);
-#endif //! ONLINE_JUDGE
+#endif
 
 	// Pair Example
 	pair<int, string> p1 = make_pair(1, "Alice");

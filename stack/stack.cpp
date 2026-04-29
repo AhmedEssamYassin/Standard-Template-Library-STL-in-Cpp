@@ -23,10 +23,10 @@ int main()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
-#ifndef ONLINE_JUDGE
+#ifdef LOCAL
 	freopen("input.txt", "r", stdin);
 	freopen("Output.txt", "w", stdout);
-#endif //! ONLINE_JUDGE
+#endif
 	stack<int> myStack;
 	myStack.push(10);
 	myStack.push(20);
