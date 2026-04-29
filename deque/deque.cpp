@@ -33,53 +33,58 @@ swap(deque<T>& other): swaps the elements of two deques - O(1)
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(nullptr);
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
 #ifdef LOCAL
-	freopen("input.txt", "r", stdin);
-	freopen("Output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("Output.txt", "w", stdout);
 #endif
-	deque<int> myDeque;
-	myDeque.push_back(10);
-	myDeque.push_front(20);
-	myDeque.push_back(30);
-	myDeque.push_front(40);
+    deque<int> myDeque;
+    myDeque.push_back(10);
+    myDeque.push_front(20);
+    myDeque.push_back(30);
+    myDeque.push_front(40);
 
-	cout << "Size: " << myDeque.size() << endl;					   // Prints 4
-	cout << "Empty: " << (myDeque.empty() ? "Yes" : "No") << endl; // Prints No
-	cout << "Front: " << myDeque.front() << endl;				   // Prints 40
-	cout << "Back: " << myDeque.back() << endl;					   // Prints 30
+    cout << "Size: " << myDeque.size() << "\n";                    /* Prints 4 */
+    cout << "Empty: " << (myDeque.empty() ? "Yes" : "No") << "\n"; /* Prints No */
+    cout << "Front: " << myDeque.front() << "\n";                  /* Prints 40 */
+    cout << "Back: " << myDeque.back() << "\n";                    /* Prints 30 */
 
-	// Traversing the deque
-	cout << "Elements: ";
-	for (const int &x : myDeque)
-		cout << x << " ";
-	cout << endl;
+    /* Traversing the deque */
+    cout << "Elements: ";
+    for (const int &x : myDeque)
+        cout << x << " ";
+    cout << "\n";
 
-	// Removing elements from both ends
-	myDeque.pop_front();
-	myDeque.pop_back();
-	cout << "After pop_front() and pop_back(): ";
-	for (const int &x : myDeque)
-		cout << x << " ";
-	cout << endl;
+    /* Removing elements from both ends */
+    myDeque.pop_front();
+    myDeque.pop_back();
+    cout << "After pop_front() and pop_back(): ";
+    for (const int &x : myDeque)
+        cout << x << " ";
+    cout << "\n";
 
-	// Insert and erase
-	auto it = myDeque.begin();
-	myDeque.insert(it + 1, 50); // Insert 50 at the second position
-	cout << "After insert(50 at position 2): ";
-	for (const int &x : myDeque)
-		cout << x << " ";
-	cout << endl;
+    /*
+    Insert and erase
 
-	myDeque.erase(it); // Erase the first element
-	cout << "After erase(first element): ";
-	for (const int &x : myDeque)
-		cout << x << " ";
-	cout << endl;
+    IMPORTANT: deque::insert() invalidates ALL iterators.
+    You must re-acquire any iterator after calling insert().
+    Using a stale iterator after insert() is undefined behavior.
+    */
+    myDeque.insert(myDeque.begin() + 1, 50);
+    cout << "After insert(50 at position 2): ";
+    for (const int &x : myDeque)
+        cout << x << " ";
+    cout << "\n";
 
-	myDeque.clear();
-	cout << "After clear(): " << (myDeque.empty() ? "Deque is empty" : "Deque is not empty") << endl;
+    myDeque.erase(myDeque.begin());
+    cout << "After erase(first element): ";
+    for (const int &x : myDeque)
+        cout << x << " ";
+    cout << "\n";
 
-	return 0;
+    myDeque.clear();
+    cout << "After clear(): " << (myDeque.empty() ? "Deque is empty" : "Deque is not empty") << "\n";
+
+    return 0;
 }

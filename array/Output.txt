@@ -1,7 +1,10 @@
-1
-5
-1 8 -2 12 5 
--2 1 5 8 12 
-5
-Elements of arr: 1 2 0 -4 7 
-Elements of newArr: -2 1 5 8 12 
+Front: 1
+Back: 5
+Size: 5
+Empty: No
+Elements: 1 8 -2 12 5 
+After sorting: -2 1 5 8 12 
+Element at index 2: 5
+Elements of arr after swap: 1 2 0 -4 7 
+Elements of newArr after swap: -2 1 5 8 12 
+After fill(9): 9 9 9 9 9 

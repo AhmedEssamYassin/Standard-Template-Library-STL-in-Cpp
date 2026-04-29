@@ -11,6 +11,14 @@ Implemented as a balanced binary search tree (typically Red-Black Tree)
 Keys are unique, and lookup, insertion, and deletion are logarithmic time O(log N)
 Supports bidirectional iterators
 
+Strict Weak Ordering Requirement:
+---------------------------------
+When using custom objects as keys, the comparator MUST obey strict weak ordering:
+1. Irreflexivity: comp(a, a) is false.
+2. Antisymmetry: If comp(a, b) is true, then comp(b, a) must be false.
+3. Transitivity: If comp(a, b) is true and comp(b, c) is true, comp(a, c) must be true.
+If the comparator fails this (e.g. using <= instead of <), the map behavior is UNDEFINED.
+
 Methods:
 --------
 begin(): returns an iterator to the first element in the map - O(1)
@@ -31,49 +39,49 @@ clear(): removes all elements from the map - O(N)
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(nullptr);
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
 #ifdef LOCAL
-	freopen("input.txt", "r", stdin);
-	freopen("Output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("Output.txt", "w", stdout);
 #endif
-	map<string, int> myMap;
-	myMap["Alice"] = 25;
-	myMap["Bob"] = 30;
-	myMap.insert({"Charlie", 35});
+    map<string, int> myMap;
+    myMap["Alice"] = 25;
+    myMap["Bob"] = 30;
+    myMap.insert({"Charlie", 35});
 
-	cout << "Size: " << myMap.size() << endl;					 // Prints 3
-	cout << "Empty: " << (myMap.empty() ? "Yes" : "No") << endl; // Prints No
+    cout << "Size: " << myMap.size() << "\n";                    /* Prints 3 */
+    cout << "Empty: " << (myMap.empty() ? "Yes" : "No") << "\n"; /* Prints No */
 
-	// Traversing the map
-	cout << "Elements: " << endl;
-	for (const auto &[key, value] : myMap)
-		cout << key << " -> " << value << endl;
+    /* Traversing the map */
+    cout << "Elements: " << "\n";
+    for (const auto &[key, value] : myMap)
+        cout << key << " -> " << value << "\n";
 
-	// Finding an element
-	string searchKey = "Bob";
-	// Important
-	if (myMap.find(searchKey) != myMap.end())
-		cout << searchKey << " found with value " << myMap[searchKey] << endl;
-	else
-		cout << searchKey << " not found" << endl;
+    /* Finding an element */
+    string searchKey = "Bob";
+    /* Important */
+    if (myMap.find(searchKey) != myMap.end())
+        cout << searchKey << " found with value " << myMap[searchKey] << "\n";
+    else
+        cout << searchKey << " not found" << "\n";
 
-	// Erasing an element
-	myMap.erase("Alice");
-	cout << "After erase(Alice): " << endl;
-	for (const auto &[key, value] : myMap)
-		cout << key << " -> " << value << endl;
+    /* Erasing an element */
+    myMap.erase("Alice");
+    cout << "After erase(Alice): " << "\n";
+    for (const auto &[key, value] : myMap)
+        cout << key << " -> " << value << "\n";
 
-	// Checking lower_bound and upper_bound
-	auto lb = myMap.lower_bound("Bob");
-	auto ub = myMap.upper_bound("Bob");
-	if (lb != myMap.end())
-		cout << "Lower bound of Bob: " << lb->first << " -> " << lb->second << endl;
-	if (ub != myMap.end())
-		cout << "Upper bound of Bob: " << ub->first << " -> " << ub->second << endl;
+    /* Checking lower_bound and upper_bound */
+    auto lb = myMap.lower_bound("Bob");
+    auto ub = myMap.upper_bound("Bob");
+    if (lb != myMap.end())
+        cout << "Lower bound of Bob: " << lb->first << " -> " << lb->second << "\n";
+    if (ub != myMap.end())
+        cout << "Upper bound of Bob: " << ub->first << " -> " << ub->second << "\n";
 
-	myMap.clear();
-	cout << "After clear(): " << (myMap.empty() ? "Map is empty" : "Map is not empty") << endl;
+    myMap.clear();
+    cout << "After clear(): " << (myMap.empty() ? "Map is empty" : "Map is not empty") << "\n";
 
-	return 0;
+    return 0;
 }

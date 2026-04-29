@@ -36,92 +36,112 @@ clear(): removes all elements from the list - O(N)
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(nullptr);
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
 #ifdef LOCAL
-	freopen("input.txt", "r", stdin);
-	freopen("Output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("Output.txt", "w", stdout);
 #endif
-	list<int> myList{10, 10, 5, 20, 15, 25};
-	cout << "Front: " << myList.front() << endl;				  // Prints 10
-	cout << "Back: " << myList.back() << endl;					  // Prints 25
-	cout << "Size: " << myList.size() << endl;					  // Prints 6
-	cout << "Empty: " << (myList.empty() ? "Yes" : "No") << endl; // Prints No
+    list<int> myList{10, 10, 5, 20, 15, 25};
+    cout << "Front: " << myList.front() << "\n";                  /* Prints 10 */
+    cout << "Back: " << myList.back() << "\n";                    /* Prints 25 */
+    cout << "Size: " << myList.size() << "\n";                    /* Prints 6 */
+    cout << "Empty: " << (myList.empty() ? "Yes" : "No") << "\n"; /* Prints No */
 
-	// Traversing the list using iterators
-	cout << "Elements: ";
-	for (auto it = myList.begin(); it != myList.end(); ++it)
-		cout << *it << " ";
-	cout << endl;
+    /* Traversing the list using iterators */
+    cout << "Elements: ";
+    for (auto it = myList.begin(); it != myList.end(); ++it)
+        cout << *it << " ";
+    cout << "\n";
 
-	myList.sort(); // Sorting the list
-	cout << "After sorting: ";
-	for (const int &x : myList)
-		cout << x << " ";
-	cout << endl;
+    myList.sort(); /* Sorting the list */
+    cout << "After sorting: ";
+    for (const int &x : myList)
+        cout << x << " ";
+    cout << "\n";
 
-	myList.push_front(99);
-	myList.push_back(-1);
-	cout << "After push_front(99) and push_back(-1): ";
-	for (const int &x : myList)
-		cout << x << " ";
-	cout << endl;
+    myList.push_front(99);
+    myList.push_back(-1);
+    cout << "After push_front(99) and push_back(-1): ";
+    for (const int &x : myList)
+        cout << x << " ";
+    cout << "\n";
 
-	myList.reverse(); // Reversing the list
-	cout << "After reverse(): ";
-	for (const int &x : myList)
-		cout << x << " ";
-	cout << endl;
+    myList.reverse(); /* Reversing the list */
+    cout << "After reverse(): ";
+    for (const int &x : myList)
+        cout << x << " ";
+    cout << "\n";
 
-	auto it = myList.begin();
-	advance(it, 2);
-	myList.insert(it, 42); // Insert 42 at the 3rd position
-	cout << "After insert(42 at 3rd position): ";
-	for (const int &x : myList)
-		cout << x << " ";
-	cout << endl;
+    auto it = myList.begin();
+    advance(it, 2);
+    myList.insert(it, 42); /* Insert 42 at the 3rd position */
+    cout << "After insert(42 at 3rd position): ";
+    for (const int &x : myList)
+        cout << x << " ";
+    cout << "\n";
 
-	it = myList.begin();
-	advance(it, 4);
-	myList.erase(it); // Erase the 5th element
-	cout << "After erase(5th element): ";
-	for (const int &x : myList)
-		cout << x << " ";
-	cout << endl;
+    it = myList.begin();
+    advance(it, 4);
+    myList.erase(it); /* Erase the 5th element */
+    cout << "After erase(5th element): ";
+    for (const int &x : myList)
+        cout << x << " ";
+    cout << "\n";
 
-	myList.remove(10); // Remove all occurrences of 10
-	cout << "After remove(10): ";
-	for (const int &x : myList)
-		cout << x << " ";
-	cout << endl;
+    myList.remove(10); /* Remove all occurrences of 10 */
+    cout << "After remove(10): ";
+    for (const int &x : myList)
+        cout << x << " ";
+    cout << "\n";
 
-	myList.pop_front();
-	cout << "After pop_front(): ";
-	for (const int &x : myList)
-		cout << x << " ";
-	cout << endl;
+    myList.pop_front();
+    cout << "After pop_front(): ";
+    for (const int &x : myList)
+        cout << x << " ";
+    cout << "\n";
 
-	myList.pop_back();
-	cout << "After pop_back(): ";
-	for (const int &x : myList)
-		cout << x << " ";
-	cout << endl;
+    /* --- The Power of splice() --- */
+    list<int> list2 = {100, 200, 300};
+    cout << "list2 before splice: ";
+    for (const int &x : list2)
+        cout << x << " ";
+    cout << "\n";
 
-	list<int> newList{1, 2, 3};
-	myList.swap(newList);
+    /* splice() transfers elements from list2 to myList at the specified iterator position. */
+    /* It operates in O(1) time because it just repoints internal pointers. No copying! */
+    auto splice_it = myList.begin();
+    advance(splice_it, 2);
+    myList.splice(splice_it, list2);
 
-	cout << "Elements of myList after swap: ";
-	for (const int &x : myList)
-		cout << x << " ";
-	cout << endl;
+    cout << "myList after splicing list2 at index 2: ";
+    for (const int &x : myList)
+        cout << x << " ";
+    cout << "\n";
+    cout << "list2 after splice (should be empty): " << (list2.empty() ? "Yes" : "No") << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	cout << "Elements of newList after swap: ";
-	for (const int &x : newList)
-		cout << x << " ";
-	cout << endl;
+    myList.pop_back();
+    cout << "After pop_back(): ";
+    for (const int &x : myList)
+        cout << x << " ";
+    cout << "\n";
 
-	myList.clear();
-	cout << "After clear(): " << (myList.empty() ? "List is empty" : "List is not empty") << endl;
+    list<int> newList{1, 2, 3};
+    myList.swap(newList);
 
-	return 0;
+    cout << "Elements of myList after swap: ";
+    for (const int &x : myList)
+        cout << x << " ";
+    cout << "\n";
+
+    cout << "Elements of newList after swap: ";
+    for (const int &x : newList)
+        cout << x << " ";
+    cout << "\n";
+
+    myList.clear();
+    cout << "After clear(): " << (myList.empty() ? "List is empty" : "List is not empty") << "\n";
+
+    return 0;
 }

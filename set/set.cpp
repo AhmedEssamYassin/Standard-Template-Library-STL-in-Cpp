@@ -11,6 +11,14 @@ Implemented as a balanced binary search tree (typically Red-Black Tree)
 Lookup, insertion, and deletion are logarithmic time O(log N)
 Supports bidirectional iterators
 
+Strict Weak Ordering Requirement:
+---------------------------------
+When using custom objects in a set, the comparator MUST obey strict weak ordering:
+1. Irreflexivity: comp(a, a) is false.
+2. Antisymmetry: If comp(a, b) is true, then comp(b, a) must be false.
+3. Transitivity: If comp(a, b) is true and comp(b, c) is true, comp(a, c) must be true.
+If the comparator fails this (e.g. using <= instead of <), the set behavior is UNDEFINED.
+
 Methods:
 --------
 begin(): returns an iterator to the first element in the set - O(1)
@@ -30,54 +38,54 @@ clear(): removes all elements from the set - O(N)
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(nullptr);
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
 #ifdef LOCAL
-	freopen("input.txt", "r", stdin);
-	freopen("Output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("Output.txt", "w", stdout);
 #endif
-	set<int> mySet{10, 5, 20, 15, 25};
-	cout << "Size: " << mySet.size() << endl;					 // Prints 5
-	cout << "Empty: " << (mySet.empty() ? "Yes" : "No") << endl; // Prints No
+    set<int> mySet{10, 5, 20, 15, 25};
+    cout << "Size: " << mySet.size() << "\n";                    /* Prints 5 */
+    cout << "Empty: " << (mySet.empty() ? "Yes" : "No") << "\n"; /* Prints No */
 
-	// Traversing the set
-	cout << "Elements: ";
-	for (const int &x : mySet)
-		cout << x << " ";
-	cout << endl;
+    /* Traversing the set */
+    cout << "Elements: ";
+    for (const int &x : mySet)
+        cout << x << " ";
+    cout << "\n";
 
-	// Inserting elements
-	mySet.insert(12);
-	mySet.insert(5); // Duplicate, won't be added
-	cout << "After insert(12 and duplicate 5): ";
-	for (const int &x : mySet)
-		cout << x << " ";
-	cout << endl;
+    /* Inserting elements */
+    mySet.insert(12);
+    mySet.insert(5); /* Duplicate, won't be added */
+    cout << "After insert(12 and duplicate 5): ";
+    for (const int &x : mySet)
+        cout << x << " ";
+    cout << "\n";
 
-	// Finding an element
-	int searchValue = 15;
-	if (mySet.find(searchValue) != mySet.end())
-		cout << searchValue << " found in set" << endl;
-	else
-		cout << searchValue << " not found in set" << endl;
+    /* Finding an element */
+    int searchValue = 15;
+    if (mySet.find(searchValue) != mySet.end())
+        cout << searchValue << " found in set" << "\n";
+    else
+        cout << searchValue << " not found in set" << "\n";
 
-	// Erasing an element
-	mySet.erase(10);
-	cout << "After erase(10): ";
-	for (const int &x : mySet)
-		cout << x << " ";
-	cout << endl;
+    /* Erasing an element */
+    mySet.erase(10);
+    cout << "After erase(10): ";
+    for (const int &x : mySet)
+        cout << x << " ";
+    cout << "\n";
 
-	// Checking lower_bound and upper_bound
-	auto lb = mySet.lower_bound(15);
-	auto ub = mySet.upper_bound(15);
-	if (lb != mySet.end())
-		cout << "Lower bound of 15: " << *lb << endl;
-	if (ub != mySet.end())
-		cout << "Upper bound of 15: " << *ub << endl;
+    /* Checking lower_bound and upper_bound */
+    auto lb = mySet.lower_bound(15);
+    auto ub = mySet.upper_bound(15);
+    if (lb != mySet.end())
+        cout << "Lower bound of 15: " << *lb << "\n";
+    if (ub != mySet.end())
+        cout << "Upper bound of 15: " << *ub << "\n";
 
-	mySet.clear();
-	cout << "After clear(): " << (mySet.empty() ? "Set is empty" : "Set is not empty") << endl;
+    mySet.clear();
+    cout << "After clear(): " << (mySet.empty() ? "Set is empty" : "Set is not empty") << "\n";
 
-	return 0;
+    return 0;
 }

@@ -4,6 +4,9 @@ Max Heap Elements (largest to smallest):
 Min Heap Elements (smallest to largest):
 5 10 20 30 
 --------------------------------------------------------
+Lambda Custom PQ (Closest to 20 first):
+20 10 30 5 
+--------------------------------------------------------
 Max Heap (Pairs):
 (3, 50) (2, 200) (1, 100) 
 --------------------------------------------------------

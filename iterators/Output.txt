@@ -1,0 +1,8 @@
+Vector elements: 10 20 30 40 50 
+Vector in reverse: 50 40 30 20 10 
+
+After advance(it, 3), it points to: 4
+Distance from begin() to 'it' is: 3
+next(begin, 2) points to: 3
+
+dest after copy + back_inserter: 10 20 30 40 50 

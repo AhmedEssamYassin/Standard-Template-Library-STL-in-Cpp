@@ -1,19 +1,25 @@
-Size: 5
-Capacity: 5
-Empty: No
-Elements: 10 5 20 15 25 
-After push_back(30): 10 5 20 15 25 30 
-After pop_back(): 10 5 20 15 25 
-After insert(50 at index 2): 10 5 50 20 15 25 
-After erase(index 2): 10 5 20 15 25 
-After resize(3): 10 5 20 
-After shrink_to_fit(), capacity: 3
-After clear(), empty: Yes
-2D Vector (3x4 filled with 1s): 
-1 1 1 1 
-1 1 1 1 
-1 1 1 1 
-Array of Vectors: 
-10 12 40 
-20 
-30 55 
+Original Vector of Pairs:
+2 5
+3 12
+1 7
+--------------------------------------------------------
+Sorted by first element (Ascending Order):
+1 7
+2 5
+3 12
+--------------------------------------------------------
+Sorted by second element (Ascending Order):
+2 5
+1 7
+3 12
+--------------------------------------------------------
+Sorted by first element (Descending Order):
+3 12
+2 5
+1 7
+--------------------------------------------------------
+Sorted by second element (Descending Order):
+3 12
+1 7
+2 5
+--------------------------------------------------------

@@ -35,6 +35,7 @@ capacity(): returns the total allocated storage - O(1)
 empty(): checks if vector is empty - O(1)
 resize(n): resizes vector to contain n elements - O(N)
 push_back(value): adds an element at the end - O(1) amortized
+emplace_back(args): constructs an element directly at the end (faster for complex types) - O(1) amortized
 pop_back(): removes the last element - O(1)
 front(): returns the first element - O(1)
 back(): returns the last element - O(1)
@@ -44,97 +45,118 @@ erase(iterator): removes element at iterator position - O(N)
 clear(): removes all elements - O(N)
 swap(vector<T>& other): swaps contents with another vector - O(1)
 assign(n, value): assigns new values to vector - O(N)
+reserve(n): allocates memory for at least n elements (prevents reallocations) - O(N)
 shrink_to_fit(): reduces capacity to fit size - O(N)
 */
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(nullptr);
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
 #ifdef LOCAL
-	freopen("input.txt", "r", stdin);
-	freopen("Output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("Output.txt", "w", stdout);
 #endif
-	   // Initializing a vector with values
-	vector<int> myVector{10, 5, 20, 15, 25};
-	cout << "Size: " << myVector.size() << endl;
-	cout << "Capacity: " << myVector.capacity() << endl;
-	cout << "Empty: " << (myVector.empty() ? "Yes" : "No") << endl;
+    /* Initializing a vector with values */
+    vector<int> myVector{10, 5, 20, 15, 25};
+    cout << "Size: " << myVector.size() << "\n";
+    cout << "Capacity: " << myVector.capacity() << "\n";
+    cout << "Empty: " << (myVector.empty() ? "Yes" : "No") << "\n";
 
-	// Traversing the vector
-	cout << "Elements: ";
-	for (const int &x : myVector)
-		cout << x << " ";
-	cout << endl;
+    /* Traversing the vector */
+    cout << "Elements: ";
+    for (const int &x : myVector)
+        cout << x << " ";
+    cout << "\n";
 
-	// Adding an element at the end
-	myVector.push_back(30);
-	cout << "After push_back(30): ";
-	for (const int &x : myVector)
-		cout << x << " ";
-	cout << endl;
+    /* Adding an element at the end */
+    myVector.push_back(30);
+    cout << "After push_back(30): ";
+    for (const int &x : myVector)
+        cout << x << " ";
+    cout << "\n";
 
-	// Removing the last element
-	myVector.pop_back();
-	cout << "After pop_back(): ";
-	for (const int &x : myVector)
-		cout << x << " ";
-	cout << endl;
+    /* Removing the last element */
+    myVector.pop_back();
+    cout << "After pop_back(): ";
+    for (const int &x : myVector)
+        cout << x << " ";
+    cout << "\n";
 
-	// Inserting an element at a specific position
-	myVector.insert(myVector.begin() + 2, 50);
-	cout << "After insert(50 at index 2): ";
-	for (const int &x : myVector)
-		cout << x << " ";
-	cout << endl;
+    /* Inserting an element at a specific position */
+    myVector.insert(myVector.begin() + 2, 50);
+    cout << "After insert(50 at index 2): ";
+    for (const int &x : myVector)
+        cout << x << " ";
+    cout << "\n";
 
-	// Erasing an element at a specific position
-	myVector.erase(myVector.begin() + 2);
-	cout << "After erase(index 2): ";
-	for (const int &x : myVector)
-		cout << x << " ";
-	cout << endl;
+    /* Erasing an element at a specific position */
+    myVector.erase(myVector.begin() + 2);
+    cout << "After erase(index 2): ";
+    for (const int &x : myVector)
+        cout << x << " ";
+    cout << "\n";
 
-	// Resizing the vector (shrinks it to 3 elements)
-	myVector.resize(3);
-	cout << "After resize(3): ";
-	for (const int &x : myVector)
-		cout << x << " ";
-	cout << endl;
+    /* Resizing the vector (shrinks it to 3 elements) */
+    myVector.resize(3);
+    cout << "After resize(3): ";
+    for (const int &x : myVector)
+        cout << x << " ";
+    cout << "\n";
 
-	// Reducing capacity to fit size exactly
-	myVector.shrink_to_fit();
-	cout << "After shrink_to_fit(), capacity: " << myVector.capacity() << endl;
+    /* Reducing capacity to fit size exactly */
+    myVector.shrink_to_fit();
+    cout << "After shrink_to_fit(), capacity: " << myVector.capacity() << "\n";
 
-	// Clearing the vector
-	myVector.clear();
-	cout << "After clear(), empty: " << (myVector.empty() ? "Yes" : "No") << endl;
+    /* Clearing the vector */
+    myVector.clear();
+    cout << "After clear(), empty: " << (myVector.empty() ? "Yes" : "No") << "\n";
 
-	// 2D Vector (Matrix-like structure)
-	vector<vector<int>> matrix(3, vector<int>(4, 1));
-	cout << "2D Vector (3x4 filled with 1s): " << endl;
-	for (const auto &row : matrix)
-	{
-		for (const auto &elem : row)
-			cout << elem << " ";
-		cout << endl;
-	}
+    /* --- Reserve vs Resize --- */
+    vector<int> resVec;
+    resVec.reserve(100); /* Allocates memory for 100 elements, but size is still 0 */
+    cout << "\nAfter reserve(100) -> Size: " << resVec.size() << ", Capacity: " << resVec.capacity() << "\n";
+    resVec.resize(50); /* Changes size to 50, filling with 0s */
+    cout << "After resize(50) -> Size: " << resVec.size() << ", Capacity: " << resVec.capacity() << "\n";
 
-	// Array of Vectors (Different-sized rows)
-	vector<int> arrVec[3];
-	arrVec[0].push_back(10);
-	arrVec[0].push_back(12);
-	arrVec[0].push_back(40);
-	arrVec[1].push_back(20);
-	arrVec[2].push_back(30);
-	arrVec[2].push_back(55);
-	cout << "Array of Vectors: " << endl;
-	for (int i = 0; i < 3; i++)
-	{
-		for (const int &x : arrVec[i])
-			cout << x << " ";
-		cout << endl;
-	}
+    /* --- emplace_back vs push_back --- */
+    vector<pair<int, string>> pairVec;
+    pairVec.push_back({1, "Alice"}); /* Creates a temporary pair, then copies/moves it */
+    pairVec.emplace_back(2, "Bob");  /* Constructs the pair directly in place (more efficient) */
 
-	return 0;
+    /* --- Erase-Remove Idiom --- */
+    vector<int> nums = {1, 2, 3, 2, 4, 2, 5};
+    /* remove() shifts non-matching elements to the front and returns an iterator to the new logical end. */
+    /* erase() then deletes the physical elements from that new end to the actual end. */
+    nums.erase(remove(nums.begin(), nums.end(), 2), nums.end());
+    cout << "\nAfter erase-remove idiom (removing 2s): ";
+    for (const int &x : nums)
+        cout << x << " ";
+    cout << "\n\n"; /* 2D Vector (Matrix-like structure) */
+    vector<vector<int>> matrix(3, vector<int>(4, 1));
+    cout << "2D Vector (3x4 filled with 1s): " << "\n";
+    for (const auto &row : matrix)
+    {
+        for (const auto &elem : row)
+            cout << elem << " ";
+        cout << "\n";
+    }
+
+    /* Array of Vectors (Different-sized rows) */
+    vector<int> arrVec[3];
+    arrVec[0].push_back(10);
+    arrVec[0].push_back(12);
+    arrVec[0].push_back(40);
+    arrVec[1].push_back(20);
+    arrVec[2].push_back(30);
+    arrVec[2].push_back(55);
+    cout << "Array of Vectors: " << "\n";
+    for (int i = 0; i < 3; i++)
+    {
+        for (const int &x : arrVec[i])
+            cout << x << " ";
+        cout << "\n";
+    }
+
+    return 0;
 }

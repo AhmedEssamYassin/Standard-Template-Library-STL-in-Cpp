@@ -21,32 +21,32 @@ top(): returns the top element of the stack - O(1)
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(nullptr);
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
 #ifdef LOCAL
-	freopen("input.txt", "r", stdin);
-	freopen("Output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("Output.txt", "w", stdout);
 #endif
-	stack<int> myStack;
-	myStack.push(10);
-	myStack.push(20);
-	myStack.push(30);
+    stack<int> myStack;
+    myStack.push(10);
+    myStack.push(20);
+    myStack.push(30);
 
-	cout << "Size: " << myStack.size() << endl;					   // Prints 3
-	cout << "Empty: " << (myStack.empty() ? "Yes" : "No") << endl; // Prints No
-	cout << "Top: " << myStack.top() << endl;					   // Prints 30
+    cout << "Size: " << myStack.size() << "\n";                    /* Prints 3 */
+    cout << "Empty: " << (myStack.empty() ? "Yes" : "No") << "\n"; /* Prints No */
+    cout << "Top: " << myStack.top() << "\n";                      /* Prints 30 */
 
-	// Removing elements from the stack
-	myStack.pop();
-	cout << "After pop(): " << endl;
-	cout << "Top: " << myStack.top() << endl;	// Prints 20
-	cout << "Size: " << myStack.size() << endl; // Prints 2
+    /* Removing elements from the stack */
+    myStack.pop();
+    cout << "After pop(): " << "\n";
+    cout << "Top: " << myStack.top() << "\n";   /* Prints 20 */
+    cout << "Size: " << myStack.size() << "\n"; /* Prints 2 */
 
-	// Clearing the stack
-	while (!myStack.empty())
-		myStack.pop();
+    /* Clearing the stack */
+    while (!myStack.empty())
+        myStack.pop();
 
-	cout << "After clearing: " << (myStack.empty() ? "Stack is empty" : "Stack is not empty") << endl;
+    cout << "After clearing: " << (myStack.empty() ? "Stack is empty" : "Stack is not empty") << "\n";
 
-	return 0;
+    return 0;
 }

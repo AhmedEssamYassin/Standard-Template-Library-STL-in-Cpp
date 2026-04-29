@@ -32,76 +32,76 @@ rehash(n): resizes the hash table to have at least n buckets - O(N)
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(nullptr);
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
 #ifdef LOCAL
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("Output.txt", "w", stdout);
 #endif
 
-	// Declaration and Initialization
-	unordered_set<int> uset;
+    /* Declaration and Initialization */
+    unordered_set<int> uset;
 
-	// Inserting elements
-	uset.insert(10);
-	uset.insert(20);
-	uset.insert(30);
-	uset.insert(40);
-	uset.insert(10); // Duplicate values are ignored
+    /* Inserting elements */
+    uset.insert(10);
+    uset.insert(20);
+    uset.insert(30);
+    uset.insert(40);
+    uset.insert(10); /* Duplicate values are ignored */
 
-	// Traversing unordered_set (No order)
-	cout << "Unordered Set Elements:\n";
-	for (const int &x : uset)
-		cout << x << " ";
-	cout << endl;
-	cout << "--------------------------------------------------------" << endl;
+    /* Traversing unordered_set (No order) */
+    cout << "Unordered Set Elements:\n";
+    for (const int &x : uset)
+        cout << x << " ";
+    cout << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Checking if an element exists
-	if (uset.find(20) != uset.end())
-		cout << "20 exists in the set\n";
+    /* Checking if an element exists */
+    if (uset.find(20) != uset.end())
+        cout << "20 exists in the set\n";
 
-	if (uset.count(50) == 0)
-		cout << "50 does not exist in the set\n";
-	cout << "--------------------------------------------------------" << endl;
+    if (uset.count(50) == 0)
+        cout << "50 does not exist in the set\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Erasing Elements
-	uset.erase(30);
-	cout << "After erasing 30:\n";
-	for (const int &x : uset)
-		cout << x << " ";
-	cout << endl;
-	cout << "--------------------------------------------------------" << endl;
+    /* Erasing Elements */
+    uset.erase(30);
+    cout << "After erasing 30:\n";
+    for (const int &x : uset)
+        cout << x << " ";
+    cout << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Swapping with another unordered_set
-	unordered_set<int> newUset = {100, 200, 300};
-	uset.swap(newUset);
+    /* Swapping with another unordered_set */
+    unordered_set<int> newUset = {100, 200, 300};
+    uset.swap(newUset);
 
-	cout << "Elements of uset after swap: ";
-	for (const int &x : uset)
-		cout << x << " ";
-	cout << endl;
+    cout << "Elements of uset after swap: ";
+    for (const int &x : uset)
+        cout << x << " ";
+    cout << "\n";
 
-	cout << "Elements of newUset after swap: ";
-	for (const int &x : newUset)
-		cout << x << " ";
-	cout << endl;
-	cout << "--------------------------------------------------------" << endl;
+    cout << "Elements of newUset after swap: ";
+    for (const int &x : newUset)
+        cout << x << " ";
+    cout << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Size, Clear, Empty
-	cout << "Size of set: " << uset.size() << endl;
-	uset.clear();
-	cout << "After clearing, is empty? " << (uset.empty() ? "Yes" : "No") << endl;
-	cout << "--------------------------------------------------------" << endl;
+    /* Size, Clear, Empty */
+    cout << "Size of set: " << uset.size() << "\n";
+    uset.clear();
+    cout << "After clearing, is empty? " << (uset.empty() ? "Yes" : "No") << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Hash Table Properties
-	unordered_set<int> uset2 = {1, 2, 3, 4, 5};
+    /* Hash Table Properties */
+    unordered_set<int> uset2 = {1, 2, 3, 4, 5};
 
-	cout << "Number of Buckets: " << uset2.bucket_count() << endl;
-	cout << "Load Factor: " << uset2.load_factor() << endl;
-	cout << "Rehashing to 10 buckets...\n";
-	uset2.rehash(10);
-	cout << "New Bucket Count: " << uset2.bucket_count() << endl;
-	cout << "--------------------------------------------------------" << endl;
+    cout << "Number of Buckets: " << uset2.bucket_count() << "\n";
+    cout << "Load Factor: " << uset2.load_factor() << "\n";
+    cout << "Rehashing to 10 buckets...\n";
+    uset2.rehash(10);
+    cout << "New Bucket Count: " << uset2.bucket_count() << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	return 0;
+    return 0;
 }

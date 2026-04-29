@@ -31,81 +31,85 @@ clear(): removes all elements from the multiset - O(N)
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(nullptr);
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
 #ifdef LOCAL
-	freopen("input.txt", "r", stdin);
-	freopen("Output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("Output.txt", "w", stdout);
 #endif
 
-	// Declaration and Initialization
-	multiset<int> mset;
+    /* Declaration and Initialization */
+    multiset<int> mset;
 
-	// Inserting elements (Duplicates allowed)
-	mset.insert(10);
-	mset.insert(20);
-	mset.insert(10);
-	mset.insert(30);
-	mset.insert(20);
-	mset.insert(10);
+    /* Inserting elements (Duplicates allowed) */
+    mset.insert(10);
+    mset.insert(20);
+    mset.insert(10);
+    mset.insert(30);
+    mset.insert(20);
+    mset.insert(10);
 
-	// Traversing multiset (Sorted order, keeps duplicates)
-	cout << "Multiset Elements:\n";
-	for (const int &x : mset)
-		cout << x << " ";
-	cout << endl;
-	cout << "--------------------------------------------------------" << endl;
+    /* Traversing multiset (Sorted order, keeps duplicates) */
+    cout << "Multiset Elements:\n";
+    for (const int &x : mset)
+        cout << x << " ";
+    cout << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Finding an element
-	auto it = mset.find(20);
-	if (it != mset.end())
-		cout << "First occurrence of 20: " << *it << endl;
+    /* Finding an element */
+    auto it = mset.find(20);
+    if (it != mset.end())
+        cout << "First occurrence of 20: " << *it << "\n";
 
-	// Counting occurrences of an element
-	cout << "Count of 10: " << mset.count(10) << endl;
-	cout << "--------------------------------------------------------" << endl;
+    /* Counting occurrences of an element */
+    cout << "Count of 10: " << mset.count(10) << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Getting range of elements with the same value
-	cout << "All occurrences of 10: ";
-	auto range = mset.equal_range(10);
-	for (auto it = range.first; it != range.second; ++it)
-		cout << *it << " ";
-	cout << endl;
-	cout << "--------------------------------------------------------" << endl;
+    /* Getting range of elements with the same value */
+    cout << "All occurrences of 10: ";
+    auto range = mset.equal_range(10);
+    for (auto it = range.first; it != range.second; ++it)
+        cout << *it << " ";
+    cout << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Erasing elements (Removes all occurrences of 20)
-	mset.erase(20);
-	cout << "After erasing 20:\n";
-	for (const int &x : mset)
-		cout << x << " ";
-	cout << endl;
-	cout << "--------------------------------------------------------" << endl;
+    /* Erasing elements (Removes all occurrences of 20) */
+    mset.erase(20);
+    cout << "After erasing 20:\n";
+    for (const int &x : mset)
+        cout << x << " ";
+    cout << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Lower bound and Upper bound
-	cout << "Lower bound of 10: " << *mset.lower_bound(10) << endl;
-	cout << "Upper bound of 10: " << *mset.upper_bound(10) << endl;
-	cout << "--------------------------------------------------------" << endl;
+    /* Lower bound and Upper bound — always guard against end() before dereferencing */
+    auto lb = mset.lower_bound(10);
+    auto ub = mset.upper_bound(10);
+    if (lb != mset.end())
+        cout << "Lower bound of 10: " << *lb << "\n";
+    if (ub != mset.end())
+        cout << "Upper bound of 10: " << *ub << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Swapping with another multiset
-	multiset<int> newMset = {100, 200, 300};
-	mset.swap(newMset);
+    /* Swapping with another multiset */
+    multiset<int> newMset = {100, 200, 300};
+    mset.swap(newMset);
 
-	cout << "Elements of mset after swap: ";
-	for (const int &x : mset)
-		cout << x << " ";
-	cout << endl;
+    cout << "Elements of mset after swap: ";
+    for (const int &x : mset)
+        cout << x << " ";
+    cout << "\n";
 
-	cout << "Elements of newMset after swap: ";
-	for (const int &x : newMset)
-		cout << x << " ";
-	cout << endl;
-	cout << "--------------------------------------------------------" << endl;
+    cout << "Elements of newMset after swap: ";
+    for (const int &x : newMset)
+        cout << x << " ";
+    cout << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Size, Clear, Empty
-	cout << "Size of multiset: " << mset.size() << endl;
-	mset.clear();
-	cout << "After clearing, is empty? " << (mset.empty() ? "Yes" : "No") << endl;
-	cout << "--------------------------------------------------------" << endl;
+    /* Size, Clear, Empty */
+    cout << "Size of multiset: " << mset.size() << "\n";
+    mset.clear();
+    cout << "After clearing, is empty? " << (mset.empty() ? "Yes" : "No") << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	return 0;
+    return 0;
 }

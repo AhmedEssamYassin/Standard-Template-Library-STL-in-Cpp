@@ -1,26 +1,26 @@
 # C++ STL: `std::string` & C-Style Strings
 
-## 📌 Overview
+## Overview
 In C++, we have two main ways to handle strings:
 - **C-Style Strings (`char[]`)**: Traditional character arrays with manual memory management.
 - **C++ String Class (`std::string`)**: Modern, dynamic, and safer alternative.
 
 ---
 
-# 📌 **Part 1: C-Style Strings (`char[]`)**
-### ✅ **Overview**
+# **Part 1: C-Style Strings (`char[]`)**
+### [x] **Overview**
 C-style strings are **arrays of characters** ending with a **null terminator (`'\0'`)**.
 
-## 🛠️ Properties of C-Style Strings
-| Feature            | Details |
+## Properties of C-Style Strings
+| Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | Fixed-size `char[]` |
-| **Requires Null Terminator** | ✅ Yes (`'\0'`) |
-| **Random Access** | ✅ Yes (Supports indexing) |
-| **Allows Duplicates** | ✅ Yes |
-| **Sorting Order** | ❌ No (Requires manual sorting) |
-| **Memory Management** | ❌ Manual (`new[]`, `delete[]`) |
-| **Mutable** | ✅ Yes (Can modify characters) |
+| **Requires Null Terminator** | [x] Yes (`'\0'`) |
+| **Random Access** | [x] Yes (Supports indexing) |
+| **Allows Duplicates** | [x] Yes |
+| **Sorting Order** | [ ] No (Requires manual sorting) |
+| **Memory Management** | [ ] Manual (`new[]`, `delete[]`) |
+| **Mutable** | [x] Yes (Can modify characters) |
 | **Size** | Fixed (constant/ known at compile-time) |
 ---
 
@@ -36,26 +36,26 @@ C-style strings are **arrays of characters** ending with a **null terminator (`'
 | `strtok(s, delim)` | Tokenizes string using delimiters | **O(N)** |
 
 ---
-# 📌 **Part 2: STL: `std::string` &**
+# **Part 2: STL: `std::string` &**
 
-## 📌 Overview
+## Overview
 `std::string` is a **dynamic character sequence container** in C++ STL that provides **built-in functions for manipulation** without worrying about memory management. Unlike **C-style strings (`char[]`)**, `std::string` is **safe, efficient, and flexible**.
 
-## 🛠️ Properties of `std::string`
-| Feature            | Details |
+## Properties of `std::string`
+| Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | Dynamic Character Array |
-| **Iterator Support** | ✅ Yes (Random Access Iterator) |
-| **Random Access** | ✅ Yes (Supports direct indexing) |
-| **Allows Duplicates** | ✅ Yes |
-| **Sorting Order** | ❌ No (Requires manual sorting) |
+| **Iterator Support** | [x] Yes (Random Access Iterator) |
+| **Random Access** | [x] Yes (Supports direct indexing) |
+| **Allows Duplicates** | [x] Yes |
+| **Sorting Order** | [ ] No (Requires manual sorting) |
 | **Size** | Dynamic (Can grow/shrink) |
 
 ---
 
 ## 📝 Member Functions & Complexity
 
-### 📌 **Basic Operations**
+### **Basic Operations**
 | Function | Description | Time Complexity |
 |----------|------------|----------------|
 | `size()` / `length()` | Returns number of characters | **O(1)** |
@@ -66,7 +66,7 @@ C-style strings are **arrays of characters** ending with a **null terminator (`'
 | `at(index)` | Returns character at `index` (Bounds checked) | **O(1)** |
 | `operator[] (index)` | Returns character at `index` (No bounds check) | **O(1)** |
 
-### 📌 **Modification Functions**
+### **Modification Functions**
 | Function | Description | Time Complexity |
 |----------|------------|----------------|
 | `push_back(char)` | Appends character to end | **O(1)** |
@@ -78,7 +78,7 @@ C-style strings are **arrays of characters** ending with a **null terminator (`'
 | `erase(pos, len)` | Removes substring from position `pos` | **O(N)** |
 | `swap(str2)` | Swaps values with `str2` | **O(1)** |
 
-### 📌 **Searching Functions**
+### **Searching Functions**
 | Function | Description | Time Complexity |
 |----------|------------|----------------|
 | `find(str, pos)` | Finds first occurrence of `str` from `pos` | **O(N)** |
@@ -88,7 +88,7 @@ C-style strings are **arrays of characters** ending with a **null terminator (`'
 | `find_first_not_of(str, pos)` | Finds first character not in `str` | **O(N)** |
 | `find_last_not_of(str, pos)` | Finds last character not in `str` | **O(N)** |
 
-### 📌 **Substring & Tokenization**
+### **Substring & Tokenization**
 | Function | Description | Time Complexity |
 |----------|------------|----------------|
 | `substr(pos, len)` | Extracts substring from `pos` of length `len` | **O(N)** |

@@ -1,0 +1,7 @@
+0-th smallest element: 10
+2-nd smallest element: 30
+4-th smallest element: 50
+--------------------------------------------------------
+Elements strictly less than 30: 2
+Elements strictly less than 25: 2
+Elements strictly less than 100: 5

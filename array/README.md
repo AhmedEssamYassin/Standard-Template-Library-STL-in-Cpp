@@ -1,16 +1,16 @@
 # C++ STL: `std::array`
 
-## 📌 Overview
+## Overview
 `std::array` is a **fixed-size container** in C++ STL that represents an array with **static storage duration**. Unlike `vector`, the size of `std::array` must be **known at compile-time**.
 
-## 🛠️ Properties of `std::array`
-| Feature            | Details |
+## Properties of `std::array`
+| Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | Fixed-size array |
-| **Iterator Support** | ✅ Yes (Random Access Iterator) |
-| **Random Access** | ✅ Yes (Supports direct indexing) |
-| **Allows Duplicates** | ✅ Yes |
-| **Sorting Order** | ❌ No (Requires manual sorting) |
+| **Iterator Support** | [x] Yes (Random Access Iterator) |
+| **Random Access** | [x] Yes (Supports direct indexing) |
+| **Allows Duplicates** | [x] Yes |
+| **Sorting Order** | [ ] No (Requires manual sorting) |
 | **Size** | Fixed at compile-time |
 
 ---

@@ -31,78 +31,82 @@ clear(): removes all elements from the multimap - O(N)
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(nullptr);
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
 #ifdef LOCAL
-	freopen("input.txt", "r", stdin);
-	freopen("Output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("Output.txt", "w", stdout);
 #endif
 
-	// Declaration and Initialization
-	multimap<string, int> mmap;
+    /* Declaration and Initialization */
+    multimap<string, int> mmap;
 
-	// Inserting elements (Duplicate keys allowed)
-	mmap.insert({"apple", 50});
-	mmap.insert({"banana", 30});
-	mmap.insert({"cherry", 20});
-	mmap.insert({"banana", 40}); // Duplicate key
-	mmap.insert({"apple", 60});	 // Duplicate key
+    /* Inserting elements (Duplicate keys allowed) */
+    mmap.insert({"apple", 50});
+    mmap.insert({"banana", 30});
+    mmap.insert({"cherry", 20});
+    mmap.insert({"banana", 40}); /* Duplicate key */
+    mmap.insert({"apple", 60});  /* Duplicate key */
 
-	// Traversing multimap (Sorted by key, duplicates kept in insertion order)
-	cout << "Multimap Elements:\n";
-	for (const auto &p : mmap)
-		cout << p.first << ": " << p.second << endl;
-	cout << "--------------------------------------------------------" << endl;
+    /* Traversing multimap (Sorted by key, duplicates kept in insertion order) */
+    cout << "Multimap Elements:\n";
+    for (const auto &p : mmap)
+        cout << p.first << ": " << p.second << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Finding elements
-	auto it = mmap.find("banana");
-	if (it != mmap.end())
-		cout << "First occurrence of banana: " << it->second << endl;
+    /* Finding elements */
+    auto it = mmap.find("banana");
+    if (it != mmap.end())
+        cout << "First occurrence of banana: " << it->second << "\n";
 
-	// Counting occurrences of a key
-	cout << "Count of 'apple': " << mmap.count("apple") << endl;
-	cout << "--------------------------------------------------------" << endl;
+    /* Counting occurrences of a key */
+    cout << "Count of 'apple': " << mmap.count("apple") << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Getting range of elements with the same key
-	cout << "All values for 'banana': ";
-	auto range = mmap.equal_range("banana");
-	for (auto it = range.first; it != range.second; ++it)
-		cout << it->second << " ";
-	cout << endl;
-	cout << "--------------------------------------------------------" << endl;
+    /* Getting range of elements with the same key */
+    cout << "All values for 'banana': ";
+    auto range = mmap.equal_range("banana");
+    for (auto it = range.first; it != range.second; ++it)
+        cout << it->second << " ";
+    cout << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Erasing all occurrences of a key
-	mmap.erase("apple");
-	cout << "After erasing 'apple':\n";
-	for (const auto &p : mmap)
-		cout << p.first << ": " << p.second << endl;
-	cout << "--------------------------------------------------------" << endl;
+    /* Erasing all occurrences of a key */
+    mmap.erase("apple");
+    cout << "After erasing 'apple':\n";
+    for (const auto &p : mmap)
+        cout << p.first << ": " << p.second << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Lower bound and Upper bound
-	cout << "Lower bound of 'banana': " << mmap.lower_bound("banana")->second << endl;
-	cout << "Upper bound of 'banana': " << mmap.upper_bound("banana")->second << endl;
-	cout << "--------------------------------------------------------" << endl;
+    /* Lower bound and Upper bound — always guard against end() before dereferencing */
+    auto lb = mmap.lower_bound("banana");
+    auto ub = mmap.upper_bound("banana");
+    if (lb != mmap.end())
+        cout << "Lower bound of 'banana': " << lb->second << "\n";
+    if (ub != mmap.end())
+        cout << "Upper bound of 'banana': " << ub->second << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Swapping with another multimap
-	multimap<string, int> newMmap = {{"grape", 70}, {"orange", 90}};
-	mmap.swap(newMmap);
+    /* Swapping with another multimap */
+    multimap<string, int> newMmap = {{"grape", 70}, {"orange", 90}};
+    mmap.swap(newMmap);
 
-	cout << "Elements of mmap after swap: ";
-	for (const auto &p : mmap)
-		cout << p.first << ": " << p.second << " ";
-	cout << endl;
+    cout << "Elements of mmap after swap: ";
+    for (const auto &p : mmap)
+        cout << p.first << ": " << p.second << " ";
+    cout << "\n";
 
-	cout << "Elements of newMmap after swap: ";
-	for (const auto &p : newMmap)
-		cout << p.first << ": " << p.second << " ";
-	cout << endl;
-	cout << "--------------------------------------------------------" << endl;
+    cout << "Elements of newMmap after swap: ";
+    for (const auto &p : newMmap)
+        cout << p.first << ": " << p.second << " ";
+    cout << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Size, Clear, Empty
-	cout << "Size of multimap: " << mmap.size() << endl;
-	mmap.clear();
-	cout << "After clearing, is empty? " << (mmap.empty() ? "Yes" : "No") << endl;
-	cout << "--------------------------------------------------------" << endl;
+    /* Size, Clear, Empty */
+    cout << "Size of multimap: " << mmap.size() << "\n";
+    mmap.clear();
+    cout << "After clearing, is empty? " << (mmap.empty() ? "Yes" : "No") << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	return 0;
+    return 0;
 }

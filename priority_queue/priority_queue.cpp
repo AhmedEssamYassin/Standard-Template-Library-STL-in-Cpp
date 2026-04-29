@@ -22,78 +22,101 @@ empty(): Returns true if the priority queue is empty, otherwise false - O(1)
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(nullptr);
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
 #ifdef LOCAL
-	freopen("input.txt", "r", stdin);
-	freopen("Output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("Output.txt", "w", stdout);
 #endif
 
-	// Max Heap (Default)
-	priority_queue<int> maxHeap;
+    /* Max Heap (Default) */
+    priority_queue<int> maxHeap;
 
-	maxHeap.push(10);
-	maxHeap.push(30);
-	maxHeap.push(20);
-	maxHeap.push(5);
+    maxHeap.push(10);
+    maxHeap.push(30);
+    maxHeap.push(20);
+    maxHeap.push(5);
 
-	cout << "Max Heap Elements (largest to smallest):\n";
-	while (!maxHeap.empty())
-	{
-		cout << maxHeap.top() << " ";
-		maxHeap.pop();
-	}
-	cout << endl;
-	cout << "--------------------------------------------------------" << endl;
+    cout << "Max Heap Elements (largest to smallest):\n";
+    while (!maxHeap.empty())
+    {
+        cout << maxHeap.top() << " ";
+        maxHeap.pop();
+    }
+    cout << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Min Heap (Using greater<int>)
-	priority_queue<int, vector<int>, greater<int>> minHeap;
+    /* Min Heap (Using greater<int>) */
+    priority_queue<int, vector<int>, greater<int>> minHeap;
 
-	minHeap.push(10);
-	minHeap.push(30);
-	minHeap.push(20);
-	minHeap.push(5);
+    minHeap.push(10);
+    minHeap.push(30);
+    minHeap.push(20);
+    minHeap.push(5);
 
-	cout << "Min Heap Elements (smallest to largest):\n";
-	while (!minHeap.empty())
-	{
-		cout << minHeap.top() << " ";
-		minHeap.pop();
-	}
-	cout << endl;
-	cout << "--------------------------------------------------------" << endl;
+    cout << "Min Heap Elements (smallest to largest):\n";
+    while (!minHeap.empty())
+    {
+        cout << minHeap.top() << " ";
+        minHeap.pop();
+    }
+    cout << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Custom Comparator (Max Heap using Pair)
-	priority_queue<pair<int, int>> pairMaxHeap;
+    /* Custom Comparator (Using Lambda) */
+    auto comp = [&](int a, int b)
+    {
+        /* Let's sort based on the absolute difference from 20 */
+        return abs(a - 20) > abs(b - 20); /* strict weak ordering! */
+    };
 
-	pairMaxHeap.push({1, 100});
-	pairMaxHeap.push({2, 200});
-	pairMaxHeap.push({3, 50});
+    /* decltype(comp) gets the type of the lambda, and we pass comp to the constructor */
+    priority_queue<int, vector<int>, decltype(comp)> customPQ(comp);
+    customPQ.push(10); /* abs(10-20) = 10 */
+    customPQ.push(30); /* abs(30-20) = 10 */
+    customPQ.push(20); /* abs(20-20) = 0 (Closest to 20, should be top) */
+    customPQ.push(5);  /* abs(5-20) = 15 (Furthest from 20) */
 
-	cout << "Max Heap (Pairs):\n";
-	while (!pairMaxHeap.empty())
-	{
-		cout << "(" << pairMaxHeap.top().first << ", " << pairMaxHeap.top().second << ") ";
-		pairMaxHeap.pop();
-	}
-	cout << endl;
-	cout << "--------------------------------------------------------" << endl;
+    cout << "Lambda Custom PQ (Closest to 20 first):\n";
+    while (!customPQ.empty())
+    {
+        cout << customPQ.top() << " ";
+        customPQ.pop();
+    }
+    cout << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	// Custom Comparator (Min Heap using Pair)
-	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pairMinHeap;
+    /* Custom Comparator (Max Heap using Pair) */
+    priority_queue<pair<int, int>> pairMaxHeap;
 
-	pairMinHeap.push({1, 200});
-	pairMinHeap.push({2, 50});
-	pairMinHeap.push({3, 100});
+    pairMaxHeap.push({1, 100});
+    pairMaxHeap.push({2, 200});
+    pairMaxHeap.push({3, 50});
 
-	cout << "Min Heap (Pairs):\n";
-	while (!pairMinHeap.empty())
-	{
-		cout << "(" << pairMinHeap.top().first << ", " << pairMinHeap.top().second << ") ";
-		pairMinHeap.pop();
-	}
-	cout << endl;
-	cout << "--------------------------------------------------------" << endl;
+    cout << "Max Heap (Pairs):\n";
+    while (!pairMaxHeap.empty())
+    {
+        cout << "(" << pairMaxHeap.top().first << ", " << pairMaxHeap.top().second << ") ";
+        pairMaxHeap.pop();
+    }
+    cout << "\n";
+    cout << "--------------------------------------------------------" << "\n";
 
-	return 0;
+    /* Custom Comparator (Min Heap using Pair) */
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pairMinHeap;
+
+    pairMinHeap.push({1, 200});
+    pairMinHeap.push({2, 50});
+    pairMinHeap.push({3, 100});
+
+    cout << "Min Heap (Pairs):\n";
+    while (!pairMinHeap.empty())
+    {
+        cout << "(" << pairMinHeap.top().first << ", " << pairMinHeap.top().second << ") ";
+        pairMinHeap.pop();
+    }
+    cout << "\n";
+    cout << "--------------------------------------------------------" << "\n";
+
+    return 0;
 }
