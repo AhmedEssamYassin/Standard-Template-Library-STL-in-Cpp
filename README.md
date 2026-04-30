@@ -1,95 +1,102 @@
 # Standard Template Library (STL) in C++
-This repository provides a comprehensive explanation and examples for various **STL containers, algorithms, and iterators** in C++. Each topic includes details on **underlying data structures, time complexities, common pitfalls, and when to use them**.
 
-## 🎯 Who Is This For?
-- **Competitive Programmers (CP)**: Looking for fast reference on container operations, custom comparators, and performance tuning.
-- **Interview Candidates**: Reviewing STL before technical interviews (especially the flowchart and complexity cheat sheets).
-- **C++ Students**: Learning the standard library beyond basic arrays and pointers.
+This repository serves as a comprehensive, technical reference for the C++ Standard Template Library (STL). It provides in-depth examples, architectural breakdowns, and performance analyses for STL containers, iterators, and algorithms. The objective is to bridge the gap between basic C++ syntax and high-performance competitive programming or production-level engineering.
 
-> **Note on Code Style:** All code examples use competitive-programming conventions for brevity:
-> - `#include <bits/stdc++.h>` — GCC-only catch-all header.
-> - `#define endl "\n"` — Faster output flushing.
-> - `freopen()` — File-based I/O for local testing.
-> *(These patterns are standard in CP, but are not recommended for production C++ code).*
+Each module within the repository details the underlying data structures, strict time complexities (Big-O notation), iterator invalidation rules, and edge cases to prevent undefined behavior.
+
+## Target Demographic
+
+- **Competitive Programmers**: Optimized reference material for container operations, custom comparators, hash collision mitigation, and Order Statistics Trees (PBDS).
+- **Software Engineers**: A structured refresher on C++ container selection, strict weak ordering, and memory management (e.g., `reserve` vs `resize`).
+- **Students**: A stepping stone from basic C++ data structures to standard library mastery.
+
+## Build and Execution
+
+The repository includes a unified build system to compile and test all modules. It requires GCC and Make. It compiles using the `std=c++2b` standard and applies the `-DLOCAL` flag to support local file redirection without hanging.
+
+```sh
+# Compile all executable files
+make -f Makefile all
+
+# Execute all binaries and route stdout to local Output.txt files
+make -f Makefile run
+
+# Clean build artifacts
+make -f Makefile clean
+```
+
+## Code Standards & Conventions
+
+The codebase adheres strictly to a custom professional style guide:
+- **Formatting**: 4-space indentation, Allman brace style, and block comments (`/* ... */`) exclusively.
+- **Performance**: `\n` is used universally over `std::endl` to prevent expensive output buffer flushing.
+- **Environment**: `#include <bits/stdc++.h>` and `freopen()` are utilized for brevity and rapid local testing. These are standard in competitive programming but should be refactored for production environments.
+
+---
 
 ## STL Containers Overview
 
-| Container | Data Structure | Supports Iterators | Random Access | Allows Duplicates | Sorted |
-|-----------|---------------|--------------------|---------------|------------------|--------|
+| Container | Underlying Structure | Supports Iterators | Random Access | Allows Duplicates | Sorted |
+|-----------|----------------------|--------------------|---------------|-------------------|--------|
 | `array` | Fixed-size array | [x] Yes | [x] Yes | [x] Yes | [ ] No |
 | `vector` | Dynamic array | [x] Yes | [x] Yes | [x] Yes | [ ] No |
 | `deque` | Doubly-ended queue | [x] Yes | [x] Yes | [x] Yes | [ ] No |
-| `list` | Doubly linked list | [x] Yes (Bidirectional) | [ ] No | [x] Yes | [ ] No |
-| `stack` | LIFO structure (uses `deque` or `vector`) | [ ] No (only top) | [ ] No | [x] Yes | [ ] No |
-| `queue` | FIFO structure (uses `deque` or `list`) | [ ] No (only front & back) | [ ] No | [x] Yes | [ ] No |
-| `priority_queue` | Heap (binary heap by default) | [ ] No (only top) | [ ] No | [x] Yes | [x] Yes (Max Heap by default) |
-| `set` | Balanced BST (Red-Black Tree) | [x] Yes | [ ] No | [ ] No (unique values) | [x] Yes |
-| `multiset` | Balanced BST (Red-Black Tree) | [x] Yes | [ ] No | [x] Yes | [x] Yes |
-| `unordered_set` | Hash Table | [x] Yes | [ ] No | [ ] No (unique values) | [ ] No |
-| `map` | Balanced BST (Red-Black Tree) | [x] Yes | [ ] No | [ ] No (unique keys) | [x] Yes (by key) |
-| `multimap` | Balanced BST (Red-Black Tree) | [x] Yes | [ ] No | [x] Yes | [x] Yes (by key) |
-| `unordered_map` | Hash Table | [x] Yes | [ ] No | [ ] No (unique keys) | [ ] No |
-| `pair` | Simple data container | [ ] No | [ ] No | [x] Yes | [ ] No |
-| `tuple` | Fixed-size heterogeneous container | [ ] No | [ ] No | [x] Yes | [ ] No |
+| `list` | Doubly linked list | [x] Yes (Bidirectional)| [ ] No | [x] Yes | [ ] No |
+| `stack` | LIFO (deque/vector) | [ ] No (Top only) | [ ] No | [x] Yes | [ ] No |
+| `queue` | FIFO (deque/list) | [ ] No (Front/Back) | [ ] No | [x] Yes | [ ] No |
+| `priority_queue`| Binary Heap | [ ] No (Top only) | [ ] No | [x] Yes | [x] Yes (Max Heap)|
+| `set` | Balanced BST (RB-Tree)| [x] Yes | [ ] No | [ ] No (Unique) | [x] Yes |
+| `multiset` | Balanced BST (RB-Tree)| [x] Yes | [ ] No | [x] Yes | [x] Yes |
+| `unordered_set` | Hash Table | [x] Yes | [ ] No | [ ] No (Unique) | [ ] No |
+| `map` | Balanced BST (RB-Tree)| [x] Yes | [ ] No | [ ] No (Unique) | [x] Yes (By Key)|
+| `multimap` | Balanced BST (RB-Tree)| [x] Yes | [ ] No | [x] Yes | [x] Yes (By Key)|
+| `unordered_map` | Hash Table | [x] Yes | [ ] No | [ ] No (Unique) | [ ] No |
+| `pair` | Structured Binding | [ ] No | [ ] No | [x] Yes | [ ] No |
+| `tuple` | Heterogeneous Sequence | [ ] No | [ ] No | [x] Yes | [ ] No |
 
 ---
 
-## STL Topics Covered
+## Modules Covered
 
-### [x] Sequential Containers
-- `array`
-- `vector`
-- `deque`
-- `list`
-- `forward_list` (Coming soon)
+### Sequential Containers
+- `array`, `vector`, `deque`, `list`
 
-### [x] Associative Containers
-#### Ordered
-- `set`, `multiset`
-- `map`, `multimap`
+### Associative Containers
+- **Ordered**: `set`, `multiset`, `map`, `multimap`
+- **Unordered**: `unordered_set`, `unordered_map`
 
-#### Unordered
-- `unordered_set`
-- `unordered_map`
+### Container Adapters
+- `stack`, `queue`, `priority_queue`
 
-### [x] Container Adapters
-- `stack`
-- `queue`
-- `priority_queue`
-
-### [x] Utility Components
-- `pair`
-- `tuple`
-- `bitset`
-
-### [x] Algorithms & Core Concepts
+### Utility & Core Concepts
 - `algorithms` (Sorting, Searching, Modifying)
-- `iterators` (Categories, Adapters, Invalidation)
-- `Predicate Functions` (Custom Comparators)
-- `custom_hash function` (SplitMix64)
+- `iterators` (Categories, Adapters, Invalidation rules)
+- `predicate_functions` (Custom Comparators, Strict Weak Ordering)
+- `custom_hash_function` (SplitMix64 implementation for collision defense)
+- `pair_and_tuple`, `bitset`
 
-### Extensions
-- `policy_based_data_structures` (GCC Extensions like Order Statistics Tree)
+### GCC Extensions
+- `policy_based_data_structures` (Order Statistics Tree for O(log N) indexing and k-th element lookups)
 
 ---
 
-## Container Selection Flowchart
+## Container Selection Matrix
 
 ```mermaid
 graph TD
- A[Need a container?] --> B{Need key-value pairs?}
- B -->|Yes| C{Need sorted keys?}
- B -->|No| D{Need sorted elements?}
- C -->|Yes| E{Allow duplicate keys?}
+ A[Select Data Structure] --> B{Require key-value pairing?}
+ B -->|Yes| C{Require sorted keys?}
+ B -->|No| D{Require sorted elements?}
+ C -->|Yes| E{Permit duplicate keys?}
  C -->|No| F[unordered_map]
  E -->|Yes| G[multimap]
  E -->|No| H[map]
- D -->|Yes| I{Allow duplicates?}
- D -->|No| J{Need fast random access?}
+ D -->|Yes| I{Permit duplicates?}
+ D -->|No| J{Require O-1 random access?}
  I -->|Yes| K[multiset]
  I -->|No| L[set]
- J -->|Yes| M{Fixed size?}
- J -->|No| N{Need insert at front?}
+ J -->|Yes| M{Fixed capacity?}
+ J -->|No| N{Require frequent front insertions?}
  M -->|Yes| O[array]
  M -->|No| P[vector]
  N -->|Yes| Q[deque or list]
@@ -98,40 +105,15 @@ graph TD
 
 ---
 
-## Big-O Complexity Cheat Sheet
+## Asymptotic Complexity Matrix
 
 | Operation | `vector` | `deque` | `list` | `set`/`map` | `unordered_set/map` |
 |-----------|----------|---------|--------|-------------|---------------------|
 | **Access `[i]`** | O(1) | O(1) | O(N) | O(log N) (Map) | O(1) avg (Map) |
 | **Insert front** | O(N) | O(1) | O(1) | — | — |
-| **Insert back** | O(1)* | O(1) | O(1) | — | — |
-| **Insert mid** | O(N) | O(N) | O(1)** | O(log N) | O(1) avg |
-| **Erase mid** | O(N) | O(N) | O(1)** | O(log N) | O(1) avg |
+| **Insert back** | O(1) Amortized | O(1) | O(1) | — | — |
+| **Insert mid** | O(N) | O(N) | O(1)* | O(log N) | O(1) avg |
+| **Erase mid** | O(N) | O(N) | O(1)* | O(log N) | O(1) avg |
 | **Find** | O(N) | O(N) | O(N) | O(log N) | O(1) avg |
 
-*\* Amortized O(1)*
-*\*\* Assuming you already have an iterator pointing to the element.*
-
----
-
-## 📖 What’s Inside?
-Each STL container has its own file with:
-- **Definition & Usage**
-- **All Member Functions**
-- **Time Complexity**
-- **Examples & Edge Cases**
-- **Sorting, Searching, & Modifications**
-
----
-
-## How to Run?
-Clone this repository and compile any STL example using:
-
-```sh
-g++ -O3 -o filename filename.cpp
-```
-Then,
-```
-./filename
-```
-
+*\* Note: O(1) insertion/erasure in `list` assumes the iterator is already pointing to the target position. Finding that position still requires O(N) traversal.*
