@@ -36,24 +36,23 @@ The codebase adheres strictly to a custom professional style guide:
 
 ## STL Containers Overview
 
-| Container | Underlying Structure | Supports Iterators | Random Access | Allows Duplicates | Sorted |
-|-----------|----------------------|--------------------|---------------|-------------------|--------|
-| `array` | Fixed-size array | [x] Yes | [x] Yes | [x] Yes | [ ] No |
-| `vector` | Dynamic array | [x] Yes | [x] Yes | [x] Yes | [ ] No |
-| `deque` | Doubly-ended queue | [x] Yes | [x] Yes | [x] Yes | [ ] No |
-| `list` | Doubly linked list | [x] Yes (Bidirectional)| [ ] No | [x] Yes | [ ] No |
-| `stack` | LIFO (deque/vector) | [ ] No (Top only) | [ ] No | [x] Yes | [ ] No |
-| `queue` | FIFO (deque/list) | [ ] No (Front/Back) | [ ] No | [x] Yes | [ ] No |
-| `priority_queue`| Binary Heap | [ ] No (Top only) | [ ] No | [x] Yes | [x] Yes (Max Heap)|
-| `set` | Balanced BST (RB-Tree)| [x] Yes | [ ] No | [ ] No (Unique) | [x] Yes |
-| `multiset` | Balanced BST (RB-Tree)| [x] Yes | [ ] No | [x] Yes | [x] Yes |
-| `unordered_set` | Hash Table | [x] Yes | [ ] No | [ ] No (Unique) | [ ] No |
-| `map` | Balanced BST (RB-Tree)| [x] Yes | [ ] No | [ ] No (Unique) | [x] Yes (By Key)|
-| `multimap` | Balanced BST (RB-Tree)| [x] Yes | [ ] No | [x] Yes | [x] Yes (By Key)|
-| `unordered_map` | Hash Table | [x] Yes | [ ] No | [ ] No (Unique) | [ ] No |
-| `pair` | Structured Binding | [ ] No | [ ] No | [x] Yes | [ ] No |
-| `tuple` | Heterogeneous Sequence | [ ] No | [ ] No | [x] Yes | [ ] No |
-
+| Container        | Underlying Structure   | Supports Iterators        | Random Access | Allows Duplicates | Sorted               |
+| :--------------- | :--------------------- | :------------------------ | :------------ | :---------------- | :------------------- |
+| `array`          | Fixed-size array       | **✓ Yes**                 | **✓ Yes**     | **✓ Yes**         | ✗ No                 |
+| `vector`         | Dynamic array          | **✓ Yes**                 | **✓ Yes**     | **✓ Yes**         | ✗ No                 |
+| `deque`          | Doubly-ended queue     | **✓ Yes**                 | **✓ Yes**     | **✓ Yes**         | ✗ No                 |
+| `list`           | Doubly linked list     | **✓ Yes** (Bidirectional) | ✗ No          | **✓ Yes**         | ✗ No                 |
+| `stack`          | LIFO (deque/vector)    | ✗ No (Top only)           | ✗ No          | **✓ Yes**         | ✗ No                 |
+| `queue`          | FIFO (deque/list)      | ✗ No (Front/Back)         | ✗ No          | **✓ Yes**         | ✗ No                 |
+| `priority_queue` | Binary Heap            | ✗ No (Top only)           | ✗ No          | **✓ Yes**         | **✓ Yes** (Max Heap) |
+| `set`            | Balanced BST (RB-Tree) | **✓ Yes**                 | ✗ No          | ✗ No (Unique)     | **✓ Yes**            |
+| `multiset`       | Balanced BST (RB-Tree) | **✓ Yes**                 | ✗ No          | **✓ Yes**         | **✓ Yes**            |
+| `unordered_set`  | Hash Table             | **✓ Yes**                 | ✗ No          | ✗ No (Unique)     | ✗ No                 |
+| `map`            | Balanced BST (RB-Tree) | **✓ Yes**                 | ✗ No          | ✗ No (Unique)     | **✓ Yes** (By Key)   |
+| `multimap`       | Balanced BST (RB-Tree) | **✓ Yes**                 | ✗ No          | **✓ Yes**         | **✓ Yes** (By Key)   |
+| `unordered_map`  | Hash Table             | **✓ Yes**                 | ✗ No          | ✗ No (Unique)     | ✗ No                 |
+| `pair`           | Structured Binding     | ✗ No                      | ✗ No          | **✓ Yes**         | ✗ No                 |
+| `tuple`          | Heterogeneous Sequence | ✗ No                      | ✗ No          | **✓ Yes**         | ✗ No                 |
 ---
 
 ## Modules Covered
@@ -83,37 +82,64 @@ The codebase adheres strictly to a custom professional style guide:
 ## Container Selection Matrix
 
 ```mermaid
-graph TD
- A[Select Data Structure] --> B{Require key-value pairing?}
- B -->|Yes| C{Require sorted keys?}
- B -->|No| D{Require sorted elements?}
- C -->|Yes| E{Permit duplicate keys?}
- C -->|No| F[unordered_map]
- E -->|Yes| G[multimap]
- E -->|No| H[map]
- D -->|Yes| I{Permit duplicates?}
- D -->|No| J{Require O-1 random access?}
- I -->|Yes| K[multiset]
- I -->|No| L[set]
- J -->|Yes| M{Fixed capacity?}
- J -->|No| N{Require frequent front insertions?}
- M -->|Yes| O[array]
- M -->|No| P[vector]
- N -->|Yes| Q[deque or list]
- N -->|No| R[vector]
+flowchart TD
+    Start([Start: Choose C++ Container]) --> Type{Key-Value pairs?}
+
+    %% Associative Containers (Maps)
+    Type -->|Yes| MapOrdered{Need sorted keys?}
+    MapOrdered -->|Yes| MapDups{Allow duplicates?}
+    MapDups -->|Yes| multimap[`std::multimap`]
+    MapDups -->|No| map[`std::map`]
+    
+    MapOrdered -->|No| UMapDups{Allow duplicates?}
+    UMapDups -->|Yes| umultimap[`std::unordered_multimap`]
+    UMapDups -->|No| umap[`std::unordered_map`]
+
+    %% Sequence & Set Containers
+    Type -->|No| Search{Fast search by value <br/>or uniqueness?}
+
+    %% Sets
+    Search -->|Yes| SetOrdered{Need elements sorted?}
+    SetOrdered -->|Yes| SetDups{Allow duplicates?}
+    SetDups -->|Yes| multiset[`std::multiset`]
+    SetDups -->|No| set[`std::set`]
+    
+    SetOrdered -->|No| USetDups{Allow duplicates?}
+    USetDups -->|Yes| umultiset[`std::unordered_multiset`]
+    USetDups -->|No| uset[`std::unordered_set`]
+
+    %% Sequences
+    Search -->|No| Fixed{Fixed size known <br/>at compile time?}
+    Fixed -->|Yes| array[`std::array`]
+    Fixed -->|No| MidInsert{Frequent inserts/erases<br/>in the middle?}
+
+    MidInsert -->|Yes| list[`std::list` / `std::forward_list`]
+    MidInsert -->|No| Ends{Insert/erase at<br/>BOTH front and back?}
+
+    Ends -->|Yes| deque[`std::deque`]
+    Ends -->|No| vector[`std::vector` <br/>⭐ Default Choice]
+
+    %% Styling (Works natively on GitHub)
+    classDef decision fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#000;
+    classDef result fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#000;
+    classDef highlight fill:#fff9c4,stroke:#fbc02d,stroke-width:3px,color:#000;
+
+    class Type,MapOrdered,MapDups,UMapDups,Search,SetOrdered,SetDups,USetDups,Fixed,MidInsert,Ends decision;
+    class multimap,map,umultimap,umap,multiset,set,umultiset,uset,array,list,deque result;
+    class vector highlight;
 ```
 
 ---
 
 ## Asymptotic Complexity Matrix
 
-| Operation | `vector` | `deque` | `list` | `set`/`map` | `unordered_set/map` |
-|-----------|----------|---------|--------|-------------|---------------------|
-| **Access `[i]`** | O(1) | O(1) | O(N) | O(log N) (Map) | O(1) avg (Map) |
-| **Insert front** | O(N) | O(1) | O(1) | — | — |
-| **Insert back** | O(1) Amortized | O(1) | O(1) | — | — |
-| **Insert mid** | O(N) | O(N) | O(1)* | O(log N) | O(1) avg |
-| **Erase mid** | O(N) | O(N) | O(1)* | O(log N) | O(1) avg |
-| **Find** | O(N) | O(N) | O(N) | O(log N) | O(1) avg |
+| Operation        | `vector`       | `deque` | `list` | `set`/`map`    | `unordered_set/map` |
+| ---------------- | -------------- | ------- | ------ | -------------- | ------------------- |
+| **Access `[i]`** | O(1)           | O(1)    | O(N)   | O(log N) (Map) | O(1) avg (Map)      |
+| **Insert front** | O(N)           | O(1)    | O(1)   | —              | —                   |
+| **Insert back**  | O(1) Amortized | O(1)    | O(1)   | —              | —                   |
+| **Insert mid**   | O(N)           | O(N)    | O(1)*  | O(log N)       | O(1) avg            |
+| **Erase mid**    | O(N)           | O(N)    | O(1)*  | O(log N)       | O(1) avg            |
+| **Find**         | O(N)           | O(N)    | O(N)   | O(log N)       | O(1) avg            |
 
 *\* Note: O(1) insertion/erasure in `list` assumes the iterator is already pointing to the target position. Finding that position still requires O(N) traversal.*
