@@ -7,10 +7,10 @@
 | Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | Fixed-size array |
-| **Iterator Support** | [x] Yes (Random Access Iterator) |
-| **Random Access** | [x] Yes (Supports direct indexing) |
-| **Allows Duplicates** | [x] Yes |
-| **Sorting Order** | [ ] No (Requires manual sorting) |
+| **Iterator Support** | ✓ Yes (Random Access Iterator) |
+| **Random Access** | ✓ Yes (Supports direct indexing) |
+| **Allows Duplicates** | ✓ Yes |
+| **Sorting Order** | ✗ No (Requires manual sorting) |
 | **Size** | Fixed at compile-time |
 
 ---

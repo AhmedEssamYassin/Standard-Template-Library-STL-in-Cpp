@@ -7,9 +7,9 @@
 | Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | Fixed-size array of integers (typically 64-bit) |
-| **Iterator Support** | [ ] No |
-| **Random Access** | [x] Yes (`O(1)`) |
-| **Dynamic Resizing**| [ ] No (Size must be known at compile time) |
+| **Iterator Support** | ✗ No |
+| **Random Access** | ✓ Yes (`O(1)`) |
+| **Dynamic Resizing**| ✗ No (Size must be known at compile time) |
 | **Time Complexity** | Most bitwise operations are `O(N / 64)` |
 
 ---
@@ -17,9 +17,9 @@
 ## When to Use `std::bitset`?
 | Scenario | Use `bitset`? | Better Alternative |
 |----------|---------------|-------------------|
-| Fixed-size array of booleans | [x] Yes | — |
-| Need ultra-fast bitwise AND/OR/XOR | [x] Yes | — |
-| Dynamic size known only at runtime | [ ] No | `vector<bool>` or `deque<bool>` |
+| Fixed-size array of booleans | ✓ Yes | — |
+| Need ultra-fast bitwise AND/OR/XOR | ✓ Yes | — |
+| Dynamic size known only at runtime | ✗ No | `vector<bool>` or `deque<bool>` |
 
 ---
 

@@ -12,10 +12,10 @@
 | Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | Binary Heap |
-| **Iterator Support** | [ ] No (Only top access) |
-| **Random Access** | [ ] No |
-| **Allows Duplicates** | [x] Yes |
-| **Maintains Order** | [x] Yes (Heap Order) |
+| **Iterator Support** | ✗ No (Only top access) |
+| **Random Access** | ✗ No |
+| **Allows Duplicates** | ✓ Yes |
+| **Maintains Order** | ✓ Yes (Heap Order) |
 | **Best for** | Dynamic sorting, fetching largest/smallest element |
 | **Insertion (`push`)** | **O(log N)** |
 | **Deletion (`pop`)** | **O(log N)** |
@@ -60,11 +60,11 @@ priority_queue<int, vector<int>, greater<int>> minHeap;
 ## When to Use `std::priority_queue`?
 | Scenario | Use `priority_queue`? | Better Alternative |
 |----------|-----------------------|-------------------|
-| Need constant access to the largest/smallest element | [x] Yes | — |
-| Need to find K-th largest/smallest quickly | [x] Yes | `std::nth_element` (if offline) |
-| Need to iterate through all sorted elements | [ ] No | `set` or `vector` + `sort()` |
-| Need to search or delete arbitrary elements | [ ] No | `set` |
-| Processing events/tasks by priority | [x] Yes | — |
+| Need constant access to the largest/smallest element | ✓ Yes | — |
+| Need to find K-th largest/smallest quickly | ✓ Yes | `std::nth_element` (if offline) |
+| Need to iterate through all sorted elements | ✗ No | `set` or `vector` + `sort()` |
+| Need to search or delete arbitrary elements | ✗ No | `set` |
+| Processing events/tasks by priority | ✓ Yes | — |
 
 ---
 

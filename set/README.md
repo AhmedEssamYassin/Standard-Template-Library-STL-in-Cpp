@@ -7,10 +7,10 @@
 | Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | Red-Black Tree (Self-Balancing BST) |
-| **Iterator Support** | [x] Yes (Bidirectional Iterator) |
-| **Random Access** | [ ] No |
-| **Allows Duplicates** | [ ] No (Only unique elements) |
-| **Sorting Order** | [x] Yes (Elements in sorted order) |
+| **Iterator Support** | ✓ Yes (Bidirectional Iterator) |
+| **Random Access** | ✗ No |
+| **Allows Duplicates** | ✗ No (Only unique elements) |
+| **Sorting Order** | ✓ Yes (Elements in sorted order) |
 | **Average Time Complexity** | O(log N) for Insert, Delete, Search |
 
 ---
@@ -35,11 +35,11 @@
 ## When to Use `std::set`?
 | Scenario | Use `set`? | Better Alternative |
 |----------|------------|-------------------|
-| Need to store unique elements sorted automatically | [x] Yes | — |
-| Need fast lookup but order doesn't matter | [ ] No | `unordered_set` (O(1) average) |
-| Need to store duplicate elements | [ ] No | `multiset` |
-| Need key-value mapping | [ ] No | `map` |
-| Frequent range queries (e.g. elements between X and Y) | [x] Yes | — |
+| Need to store unique elements sorted automatically | ✓ Yes | — |
+| Need fast lookup but order doesn't matter | ✗ No | `unordered_set` (O(1) average) |
+| Need to store duplicate elements | ✗ No | `multiset` |
+| Need key-value mapping | ✗ No | `map` |
+| Frequent range queries (e.g. elements between X and Y) | ✓ Yes | — |
 
 ---
 

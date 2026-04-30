@@ -7,10 +7,10 @@
 | Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | Red-Black Tree (Self-Balancing BST) |
-| **Iterator Support** | [x] Yes (Bidirectional Iterator) |
-| **Random Access** | [ ] No |
-| **Allows Duplicates** | [ ] No (Unique Keys) |
-| **Sorting Order** | [x] Yes (Keys in sorted order) |
+| **Iterator Support** | ✓ Yes (Bidirectional Iterator) |
+| **Random Access** | ✗ No |
+| **Allows Duplicates** | ✗ No (Unique Keys) |
+| **Sorting Order** | ✓ Yes (Keys in sorted order) |
 | **Average Time Complexity** | O(log N) for Insert, Delete, Search |
 
 ---
@@ -37,11 +37,11 @@
 ## When to Use `std::map`?
 | Scenario | Use `map`? | Better Alternative |
 |----------|------------|-------------------|
-| Need key-value pairs sorted by key | [x] Yes | — |
-| Need fast lookup but order doesn't matter | [ ] No | `unordered_map` (O(1) average) |
-| Need duplicate keys | [ ] No | `multimap` |
-| Only need to store unique values (no keys) | [ ] No | `set` |
-| Frequent range queries (e.g. elements between X and Y) | [x] Yes | — |
+| Need key-value pairs sorted by key | ✓ Yes | — |
+| Need fast lookup but order doesn't matter | ✗ No | `unordered_map` (O(1) average) |
+| Need duplicate keys | ✗ No | `multimap` |
+| Only need to store unique values (no keys) | ✗ No | `set` |
+| Frequent range queries (e.g. elements between X and Y) | ✓ Yes | — |
 
 ---
 

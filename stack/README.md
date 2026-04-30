@@ -7,10 +7,10 @@
 | Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | `std::deque` (by default) |
-| **Iterator Support** | [ ] No |
-| **Random Access** | [ ] No |
-| **Allows Duplicates** | [x] Yes |
-| **Sorting Order** | [ ] No (Maintains insertion order) |
+| **Iterator Support** | ✗ No |
+| **Random Access** | ✗ No |
+| **Allows Duplicates** | ✓ Yes |
+| **Sorting Order** | ✗ No (Maintains insertion order) |
 | **Size** | Dynamic (Can grow/shrink at one end) |
 
 ---
@@ -29,10 +29,10 @@
 ## When to Use `std::stack`?
 | Scenario | Use `stack`? | Better Alternative |
 |----------|--------------|-------------------|
-| Need Last-In, First-Out (LIFO) behavior | [x] Yes | — |
-| Depth-First Search (DFS) | [x] Yes | (or use recursion) |
-| Undo/Redo functionality | [x] Yes | — |
-| Need to iterate through the elements | [ ] No | `vector` or `deque` |
+| Need Last-In, First-Out (LIFO) behavior | ✓ Yes | — |
+| Depth-First Search (DFS) | ✓ Yes | (or use recursion) |
+| Undo/Redo functionality | ✓ Yes | — |
+| Need to iterate through the elements | ✗ No | `vector` or `deque` |
 
 ---
 

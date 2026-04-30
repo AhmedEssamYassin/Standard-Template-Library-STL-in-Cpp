@@ -7,10 +7,10 @@
 | Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | Red-Black Tree (Self-Balancing BST) |
-| **Iterator Support** | [x] Yes (Bidirectional Iterator) |
-| **Random Access** | [ ] No |
-| **Allows Duplicates** | [x] Yes (Multiple values per key) |
-| **Sorting Order** | [x] Yes (Keys in sorted order) |
+| **Iterator Support** | ✓ Yes (Bidirectional Iterator) |
+| **Random Access** | ✗ No |
+| **Allows Duplicates** | ✓ Yes (Multiple values per key) |
+| **Sorting Order** | ✓ Yes (Keys in sorted order) |
 | **Average Time Complexity** | O(log N) for Insert, Delete, Search |
 
 ---
@@ -35,10 +35,10 @@
 ## When to Use `std::multimap`?
 | Scenario | Use `multimap`? | Better Alternative |
 |----------|-----------------|-------------------|
-| Need key-value pairs sorted by key AND duplicate keys | [x] Yes | — |
-| Need fast lookup but order doesn't matter | [ ] No | `unordered_multimap` |
-| Need unique keys | [ ] No | `map` |
-| Only need to store values (no keys) | [ ] No | `multiset` |
+| Need key-value pairs sorted by key AND duplicate keys | ✓ Yes | — |
+| Need fast lookup but order doesn't matter | ✗ No | `unordered_multimap` |
+| Need unique keys | ✗ No | `map` |
+| Only need to store values (no keys) | ✗ No | `multiset` |
 
 ---
 

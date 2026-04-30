@@ -9,11 +9,11 @@
 ## Properties of `std::pair` & `std::tuple`
 | Feature | `std::pair` | `std::tuple` |
 |-------------------|------------|-------------|
-| **Stores Multiple Values** | [x] (Two values) | [x] (Multiple values) |
-| **Fixed Size** | [x] Yes | [x] Yes |
-| **Supports Different Data Types** | [x] Yes | [x] Yes |
-| **Sorting Support** | [x] Yes (Lexicographical order) | [ ] No (Requires manual sorting) |
-| **Random Access** | [ ] No | [ ] No |
+| **Stores Multiple Values** | ✓ (Two values) | ✓ (Multiple values) |
+| **Fixed Size** | ✓ Yes | ✓ Yes |
+| **Supports Different Data Types** | ✓ Yes | ✓ Yes |
+| **Sorting Support** | ✓ Yes (Lexicographical order) | ✗ No (Requires manual sorting) |
+| **Random Access** | ✗ No | ✗ No |
 
 ---
 

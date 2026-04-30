@@ -7,10 +7,10 @@
 | Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | Red-Black Tree (Self-Balancing BST) |
-| **Iterator Support** | [x] Yes (Bidirectional Iterator) |
-| **Random Access** | [ ] No |
-| **Allows Duplicates** | [x] Yes (Stores multiple identical elements) |
-| **Sorting Order** | [x] Yes (Elements in sorted order) |
+| **Iterator Support** | ✓ Yes (Bidirectional Iterator) |
+| **Random Access** | ✗ No |
+| **Allows Duplicates** | ✓ Yes (Stores multiple identical elements) |
+| **Sorting Order** | ✓ Yes (Elements in sorted order) |
 | **Average Time Complexity** | O(log N) for Insert, Delete, Search |
 
 ---
@@ -35,10 +35,10 @@
 ## When to Use `std::multiset`?
 | Scenario | Use `multiset`? | Better Alternative |
 |----------|-----------------|-------------------|
-| Need to store elements sorted automatically AND allow duplicates | [x] Yes | — |
-| Need fast lookup but order doesn't matter | [ ] No | `unordered_multiset` |
-| Need unique elements only | [ ] No | `set` |
-| Need key-value mapping | [ ] No | `multimap` |
+| Need to store elements sorted automatically AND allow duplicates | ✓ Yes | — |
+| Need fast lookup but order doesn't matter | ✗ No | `unordered_multiset` |
+| Need unique elements only | ✗ No | `set` |
+| Need key-value mapping | ✗ No | `multimap` |
 
 ---
 

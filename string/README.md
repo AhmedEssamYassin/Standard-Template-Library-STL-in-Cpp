@@ -15,12 +15,12 @@ C-style strings are **arrays of characters** ending with a **null terminator (`'
 | Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | Fixed-size `char[]` |
-| **Requires Null Terminator** | [x] Yes (`'\0'`) |
-| **Random Access** | [x] Yes (Supports indexing) |
-| **Allows Duplicates** | [x] Yes |
-| **Sorting Order** | [ ] No (Requires manual sorting) |
-| **Memory Management** | [ ] Manual (`new[]`, `delete[]`) |
-| **Mutable** | [x] Yes (Can modify characters) |
+| **Requires Null Terminator** | ✓ Yes (`'\0'`) |
+| **Random Access** | ✓ Yes (Supports indexing) |
+| **Allows Duplicates** | ✓ Yes |
+| **Sorting Order** | ✗ No (Requires manual sorting) |
+| **Memory Management** | ✗ Manual (`new[]`, `delete[]`) |
+| **Mutable** | ✓ Yes (Can modify characters) |
 | **Size** | Fixed (constant/ known at compile-time) |
 ---
 
@@ -45,10 +45,10 @@ C-style strings are **arrays of characters** ending with a **null terminator (`'
 | Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | Dynamic Character Array |
-| **Iterator Support** | [x] Yes (Random Access Iterator) |
-| **Random Access** | [x] Yes (Supports direct indexing) |
-| **Allows Duplicates** | [x] Yes |
-| **Sorting Order** | [ ] No (Requires manual sorting) |
+| **Iterator Support** | ✓ Yes (Random Access Iterator) |
+| **Random Access** | ✓ Yes (Supports direct indexing) |
+| **Allows Duplicates** | ✓ Yes |
+| **Sorting Order** | ✗ No (Requires manual sorting) |
 | **Size** | Dynamic (Can grow/shrink) |
 
 ---

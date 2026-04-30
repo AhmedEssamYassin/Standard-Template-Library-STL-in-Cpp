@@ -7,10 +7,10 @@
 | Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | `std::deque` (by default) |
-| **Iterator Support** | [ ] No |
-| **Random Access** | [ ] No |
-| **Allows Duplicates** | [x] Yes |
-| **Sorting Order** | [ ] No (Maintains insertion order) |
+| **Iterator Support** | ✗ No |
+| **Random Access** | ✗ No |
+| **Allows Duplicates** | ✓ Yes |
+| **Sorting Order** | ✗ No (Maintains insertion order) |
 | **Size** | Dynamic (Can grow/shrink at both ends) |
 
 ---
@@ -30,11 +30,11 @@
 ## When to Use `std::queue`?
 | Scenario | Use `queue`? | Better Alternative |
 |----------|--------------|-------------------|
-| Need First-In, First-Out (FIFO) behavior | [x] Yes | — |
-| Breadth-First Search (BFS) | [x] Yes | — |
-| Scheduling tasks in order of arrival | [x] Yes | — |
-| Need to iterate through the elements | [ ] No | `deque` or `list` |
-| Need priority-based processing | [ ] No | `priority_queue` |
+| Need First-In, First-Out (FIFO) behavior | ✓ Yes | — |
+| Breadth-First Search (BFS) | ✓ Yes | — |
+| Scheduling tasks in order of arrival | ✓ Yes | — |
+| Need to iterate through the elements | ✗ No | `deque` or `list` |
+| Need priority-based processing | ✗ No | `priority_queue` |
 
 ---
 

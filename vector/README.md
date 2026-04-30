@@ -7,11 +7,11 @@
 | Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | Dynamic Array |
-| **Iterator Support** | [x] Yes (Random Access Iterator) |
-| **Random Access** | [x] Yes (`O(1)`) |
-| **Allows Duplicates** | [x] Yes |
-| **Sorting Order** | [ ] No (Requires manual sorting) |
-| **Resizing** | [x] Yes (Automatic growth) |
+| **Iterator Support** | ✓ Yes (Random Access Iterator) |
+| **Random Access** | ✓ Yes (`O(1)`) |
+| **Allows Duplicates** | ✓ Yes |
+| **Sorting Order** | ✗ No (Requires manual sorting) |
+| **Resizing** | ✓ Yes (Automatic growth) |
 | **Amortized Insertion at End** | **O(1)** |
 
 ---
@@ -47,11 +47,11 @@
 ## When to Use `std::vector`?
 | Scenario | Use `vector`? | Better Alternative |
 |----------|---------------|-------------------|
-| Need random access by index | [x] Yes | — |
-| Frequent insert/delete at front | [ ] No | `deque` or `list` |
-| Frequent insert/delete in middle | [ ] No | `list` |
-| Need sorted unique elements | [ ] No | `set` |
-| Need contiguous memory (C API interop) | [x] Yes | — |
+| Need random access by index | ✓ Yes | — |
+| Frequent insert/delete at front | ✗ No | `deque` or `list` |
+| Frequent insert/delete in middle | ✗ No | `list` |
+| Need sorted unique elements | ✗ No | `set` |
+| Need contiguous memory (C API interop) | ✓ Yes | — |
 | Size known at compile time | Maybe | `array` (zero overhead) |
 
 ---

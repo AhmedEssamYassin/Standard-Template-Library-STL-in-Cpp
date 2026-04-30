@@ -7,10 +7,10 @@
 | Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | Hash Table |
-| **Iterator Support** | [x] Yes (Forward Iterator) |
-| **Random Access** | [ ] No |
-| **Allows Duplicates** | [ ] No (Only unique elements) |
-| **Sorting Order** | [ ] No (Unordered) |
+| **Iterator Support** | ✓ Yes (Forward Iterator) |
+| **Random Access** | ✗ No |
+| **Allows Duplicates** | ✗ No (Only unique elements) |
+| **Sorting Order** | ✗ No (Unordered) |
 | **Average Time Complexity** | O(1) for Insert, Delete, Search |
 | **Worst-case Time Complexity** | O(N) (Due to hash collisions) |
 
@@ -36,10 +36,10 @@
 ## When to Use `std::unordered_set`?
 | Scenario | Use `unordered_set`? | Better Alternative |
 |----------|----------------------|-------------------|
-| Need to store unique elements with fast lookup | [x] Yes | — |
-| Order of elements doesn't matter | [x] Yes | — |
-| Need elements sorted automatically | [ ] No | `set` |
-| Frequent range queries | [ ] No | `set` |
+| Need to store unique elements with fast lookup | ✓ Yes | — |
+| Order of elements doesn't matter | ✓ Yes | — |
+| Need elements sorted automatically | ✗ No | `set` |
+| Frequent range queries | ✗ No | `set` |
 
 ---
 

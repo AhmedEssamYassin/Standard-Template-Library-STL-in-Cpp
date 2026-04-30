@@ -7,10 +7,10 @@
 | Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | Doubly Linked List |
-| **Iterator Support** | [x] Yes (Bidirectional Iterator) |
-| **Random Access** | [ ] No |
-| **Allows Duplicates** | [x] Yes |
-| **Sorting Order** | [ ] No (Requires manual sorting) |
+| **Iterator Support** | ✓ Yes (Bidirectional Iterator) |
+| **Random Access** | ✗ No |
+| **Allows Duplicates** | ✓ Yes |
+| **Sorting Order** | ✗ No (Requires manual sorting) |
 | **Size** | Dynamic (Can grow/shrink at both ends) |
 
 ---
@@ -41,10 +41,10 @@
 ## When to Use `std::list`?
 | Scenario | Use `list`? | Better Alternative |
 |----------|-------------|-------------------|
-| Frequent insert/delete in the **middle** | [x] Yes | — |
-| Need to transfer elements between containers fast | [x] Yes | (Using `splice`) |
-| Need random access by index (`list[i]`) | [ ] No | `vector` or `deque` |
-| High performance / Cache friendliness required | [ ] No | `vector` |
+| Frequent insert/delete in the **middle** | ✓ Yes | — |
+| Need to transfer elements between containers fast | ✓ Yes | (Using `splice`) |
+| Need random access by index (`list[i]`) | ✗ No | `vector` or `deque` |
+| High performance / Cache friendliness required | ✗ No | `vector` |
 
 ---
 

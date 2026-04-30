@@ -7,10 +7,10 @@
 | Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | Hash Table |
-| **Iterator Support** | [x] Yes (Forward Iterator) |
-| **Random Access** | [ ] No |
-| **Allows Duplicates** | [ ] No (Unique Keys) |
-| **Sorting Order** | [ ] No (Unordered) |
+| **Iterator Support** | ✓ Yes (Forward Iterator) |
+| **Random Access** | ✗ No |
+| **Allows Duplicates** | ✗ No (Unique Keys) |
+| **Sorting Order** | ✗ No (Unordered) |
 | **Average Time Complexity** | O(1) for Insert, Delete, Search |
 | **Worst-case Time Complexity** | O(N) (Due to hash collisions) |
 
@@ -38,11 +38,11 @@
 ## When to Use `std::unordered_map`?
 | Scenario | Use `unordered_map`? | Better Alternative |
 |----------|----------------------|-------------------|
-| Need key-value mapping with fast lookup | [x] Yes | — |
-| Order of elements doesn't matter | [x] Yes | — |
-| Need elements sorted by key | [ ] No | `map` |
-| Frequent range queries | [ ] No | `map` |
-| Security against Hash Collision attacks | [ ] No | `map` or use custom hash |
+| Need key-value mapping with fast lookup | ✓ Yes | — |
+| Order of elements doesn't matter | ✓ Yes | — |
+| Need elements sorted by key | ✗ No | `map` |
+| Frequent range queries | ✗ No | `map` |
+| Security against Hash Collision attacks | ✗ No | `map` or use custom hash |
 
 ---
 

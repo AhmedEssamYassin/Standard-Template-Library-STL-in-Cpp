@@ -7,10 +7,10 @@
 | Feature | Details |
 |-------------------|---------|
 | **Underlying Data Structure** | Segmented Dynamic Array |
-| **Iterator Support** | [x] Yes (Random Access Iterator) |
-| **Random Access** | [x] Yes (Supports direct indexing) |
-| **Allows Duplicates** | [x] Yes |
-| **Sorting Order** | [ ] No (Requires manual sorting) |
+| **Iterator Support** | ✓ Yes (Random Access Iterator) |
+| **Random Access** | ✓ Yes (Supports direct indexing) |
+| **Allows Duplicates** | ✓ Yes |
+| **Sorting Order** | ✗ No (Requires manual sorting) |
 | **Size** | Dynamic (Can grow/shrink at both ends) |
 
 ---
@@ -37,10 +37,10 @@
 ## When to Use `std::deque`?
 | Scenario | Use `deque`? | Better Alternative |
 |----------|--------------|-------------------|
-| Frequent insert/delete at **front AND back** | [x] Yes | — |
-| Need random access by index | [x] Yes | `vector` (if front operations aren't needed) |
-| Elements must be contiguous in memory | [ ] No | `vector` |
-| Frequent insert/delete in the middle | [ ] No | `list` |
+| Frequent insert/delete at **front AND back** | ✓ Yes | — |
+| Need random access by index | ✓ Yes | `vector` (if front operations aren't needed) |
+| Elements must be contiguous in memory | ✗ No | `vector` |
+| Frequent insert/delete in the middle | ✗ No | `list` |
 
 ---
 

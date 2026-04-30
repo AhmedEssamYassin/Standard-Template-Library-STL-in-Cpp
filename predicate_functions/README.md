@@ -95,9 +95,9 @@ priority_queue<int, vector<int>, greater<int>> minHeap;
 
 | Use Case | Comparator Required | Strict Weak Ordering | Reversed Logic |
 |----------------|---------------------|-----------------------|----------------|
-| `set`, `map` | [x] | [x] | [ ] |
-| `priority_queue` | [x] | [ ] (not required) | [x] |
-| `algorithms` | [x] Predicate | [ ] | [ ] |
+| `set`, `map` | ✓ | ✓ | ✗ |
+| `priority_queue` | ✓ | ✗ (not required) | ✓ |
+| `algorithms` | ✓ Predicate | ✗ | ✗ |
 
 ---
 
