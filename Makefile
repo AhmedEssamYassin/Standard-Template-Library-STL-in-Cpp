@@ -15,15 +15,13 @@ all: $(BINS) run
 # Target to run all executables and generate Output.txt
 run: $(BINS)
 	@for %%f in ($(BINS)) do ( \
-		echo Running %%f... && \
-		cd %%~dpf && \
-		"%%~nxf" > Output.txt && \
-		cd .. \
+		echo Running "%%f"... && \
+		pushd "%%~dpf" && \
+		"%%~nxf" && \
+		popd \
 	)
 
 clean:
-	@for %%f in ($(BINS)) do ( \
-		if exist "%%f" del /Q "%%f" \
-	)
+	-del /S /Q *.exe Output.txt 2>nul
 
 .PHONY: all run clean

@@ -1,4 +1,9 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <map>
+#include <set>
 using namespace std;
 #define ll long long int
 #define endl "\n"
@@ -55,10 +60,10 @@ int main()
             families[i].index = i + 1;
         }
         sort(families.begin(), families.end(), predicateFunc);
-        for (const Data &Family : families)
-            cout << Family.index << " ";
-        /* cout << Family.numberOfMembers << " " << Family.income << " " << Family.incomePerPerson << " " <<
-         * Family.index << "\n"; */
+        for (const Data &family : families)
+            cout << family.index << " ";
+        /* cout << family.numberOfMembers << " " << family.income << " " << family.incomePerPerson << " " <<
+         * family.index << "\n"; */
     }
     return 0;
 }

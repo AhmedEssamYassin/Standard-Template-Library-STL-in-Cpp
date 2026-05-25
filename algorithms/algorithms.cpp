@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <numeric>
 using namespace std;
 #define ll long long int
 #define endl "\n"

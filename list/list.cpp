@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <list>
 using namespace std;
 #define ll long long int
 #define endl "\n"

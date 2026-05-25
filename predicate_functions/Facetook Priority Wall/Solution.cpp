@@ -1,9 +1,14 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <map>
+#include <set>
 using namespace std;
 #define ll long long int
 #define endl "\n"
 
-bool predicate_func(const pair<string, int> &P1, const pair<string, int> &P2)
+bool predicateFunc(const pair<string, int> &P1, const pair<string, int> &P2)
 {
     /* {Name, priority} */
     if (P1.second == P2.second)     /* Same priority */
@@ -65,7 +70,7 @@ int main()
         for (auto &it : factor)
             prList.push_back({it.first, it.second});
 
-        sort(prList.begin(), prList.end(), predicate_func);
+        sort(prList.begin(), prList.end(), predicateFunc);
         for (int i{}; i < prList.size(); i++)
             cout << prList[i].first << "\n";
     }

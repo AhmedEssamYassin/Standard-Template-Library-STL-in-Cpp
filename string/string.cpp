@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <cstring>
 using namespace std;
 #define ll long long int
 #define endl "\n"
@@ -127,7 +129,7 @@ Concatenation and comparison can be easily done using the overloaded operators =
 int main()
 {
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    cin.tie(nullptr);
 #ifdef LOCAL
     freopen("input.txt", "r", stdin);
     freopen("Output.txt", "w", stdout);
@@ -276,6 +278,7 @@ int main()
         Calling `strcat(S1, S2)` would write 38 characters into an 18-byte buffer,
         causing a stack buffer overflow (Undefined Behavior).
         To fix this, we explicitly give S1 a large capacity: `char S1[64]`.
+        Note: Dynamically sized std::string prevents these buffer overflow exploits natively.
         */
         char S1[64] = "A character Array";
         char S2[] = " is a C-style string";
@@ -346,6 +349,7 @@ int main()
     */
     cout << sizeof(S) << "\n";
 
+    cin.ignore(); /* Ignore the leftover newline character in the input buffer */
     getline(cin, T); /* reads a line (string with spaces) as an input */
     cout << T << "\n";
 

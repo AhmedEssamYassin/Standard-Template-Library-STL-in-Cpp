@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-/* 1. Include the PBDS headers */
+#include <iostream>
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
 

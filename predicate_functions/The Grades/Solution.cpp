@@ -1,19 +1,24 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <map>
+#include <set>
 using namespace std;
 #define ll long long int
 #define endl "\n"
 
 struct Student
 {
-    string Name;
-    int Total_grade;
+    string name;
+    int totalGrade;
 };
-bool predicate_function(const pair<Student, array<int, 4>> &P1, const pair<Student, array<int, 4>> &P2)
+bool predicateFunction(const pair<Student, array<int, 4>> &P1, const pair<Student, array<int, 4>> &P2)
 {
-    if (P1.first.Total_grade == P2.first.Total_grade)
-        return (P1.first.Name < P2.first.Name);
+    if (P1.first.totalGrade == P2.first.totalGrade)
+        return (P1.first.name < P2.first.name);
     else
-        return (P1.first.Total_grade > P2.first.Total_grade);
+        return (P1.first.totalGrade > P2.first.totalGrade);
 }
 
 int main()
@@ -23,26 +28,26 @@ int main()
 #ifdef LOCAL
     freopen("input.txt", "r", stdin);
     freopen("Output.txt", "w", stdout);
-#endif /* !ONLINE_JUDGE */
+#endif
 
     int N;
     cin >> N;
-    vector<pair<Student, array<int, 4>>> List(N);
+    vector<pair<Student, array<int, 4>>> students(N);
     for (int i{}; i < N; i++)
     {
-        cin >> List[i].first.Name;
-        int Sum_of_grades{};
+        cin >> students[i].first.name;
+        int sumOfGrades{};
         for (int j{}; j < 4; j++)
         {
-            cin >> List[i].second[j];
-            Sum_of_grades += List[i].second[j];
+            cin >> students[i].second[j];
+            sumOfGrades += students[i].second[j];
         }
-        List[i].first.Total_grade = Sum_of_grades;
+        students[i].first.totalGrade = sumOfGrades;
     }
-    sort(List.begin(), List.end(), predicate_function);
-    for (const auto &student : List)
+    sort(students.begin(), students.end(), predicateFunction);
+    for (const auto &student : students)
     {
-        cout << student.first.Name << " " << student.first.Total_grade << " ";
+        cout << student.first.name << " " << student.first.totalGrade << " ";
         for (int i{}; i < 4; i++)
             cout << student.second[i] << " \n"[i == 3];
     }

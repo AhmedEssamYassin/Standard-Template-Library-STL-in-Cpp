@@ -1,19 +1,24 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <map>
+#include <set>
 using namespace std;
 #define ll long long int
 #define endl "\n"
 
 struct Employee
 {
-    string Name;
-    int Salary;
+    string name;
+    int salary;
 };
-bool predicate_function(const Employee &E1, const Employee &E2)
+bool predicateFunction(const Employee &E1, const Employee &E2)
 {
-    if (E1.Salary == E2.Salary)
-        return (E1.Name < E2.Name);
+    if (E1.salary == E2.salary)
+        return (E1.name < E2.name);
     else
-        return (E1.Salary > E2.Salary);
+        return (E1.salary > E2.salary);
 }
 
 int main()
@@ -23,17 +28,17 @@ int main()
 #ifdef LOCAL
     freopen("input.txt", "r", stdin);
     freopen("Output.txt", "w", stdout);
-#endif /* !ONLINE_JUDGE */
+#endif
 
     int N;
     cin >> N;
-    vector<Employee> List(N);
+    vector<Employee> employees(N);
     for (int i{}; i < N; i++)
-        cin >> List[i].Name >> List[i].Salary;
+        cin >> employees[i].name >> employees[i].salary;
 
-    sort(List.begin(), List.end(), predicate_function);
-    for (const auto &employee : List)
-        cout << employee.Name << " " << employee.Salary << "\n";
+    sort(employees.begin(), employees.end(), predicateFunction);
+    for (const auto &employee : employees)
+        cout << employee.name << " " << employee.salary << "\n";
 
     return 0;
 }

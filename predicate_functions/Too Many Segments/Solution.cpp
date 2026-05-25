@@ -1,12 +1,17 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <map>
+#include <set>
 using namespace std;
 #define ll long long int
 #define endl "\n"
 
-struct segment
+struct Segment
 {
     int li, ri, pos;
-    bool operator<(const segment &other) const { return ri != other.ri ? ri < other.ri : pos < other.pos; }
+    bool operator<(const Segment &other) const { return ri != other.ri ? ri < other.ri : pos < other.pos; }
 };
 
 int main()
@@ -23,7 +28,7 @@ int main()
     while (t--)
     {
         cin >> N >> k;
-        vector<vector<segment>> vc(2e5 + 1);
+        vector<vector<Segment>> vc(2e5 + 1);
         for (int i{1}; i <= N; i++)
         {
             int li, ri;
@@ -31,7 +36,7 @@ int main()
             vc[li].push_back({li, ri, i});
         }
         vector<int> ans;
-        set<segment> st;
+        set<Segment> st;
         for (int i = 1; i <= 2e5; i++)
         {
             for (const auto &seg : vc[i])
@@ -40,7 +45,7 @@ int main()
                 st.erase(st.begin());
             while (st.size() > k)
             {
-                segment it = *st.rbegin();
+                Segment it = *st.rbegin();
                 ans.push_back(it.pos);
                 st.erase(it);
             }

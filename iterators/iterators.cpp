@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <iterator>
+#include <list>
 using namespace std;
 #define ll long long int
 #define endl "\n"
